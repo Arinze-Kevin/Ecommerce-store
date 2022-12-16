@@ -1,0 +1,13 @@
+.top {
+    margin-bottom: 1.5em;
+    margin-top: 0.7em;
+    cursor: pointer;
+    color:rgb(213, 213, 213) ;
+}
+
+.topone {
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    margin-right: 5em;
+    cursor: pointer;
+}

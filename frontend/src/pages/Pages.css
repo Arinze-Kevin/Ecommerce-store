@@ -1,0 +1,44 @@
+
+
+
+.home {
+    margin-left: 1.5em;
+    margin-top: 10em;
+    position: fixed;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 5em;
+    border: 4em;
+    border-color: rgb(123, 8, 8);    
+}
+
+.borderr {
+    border: 10px ridge;
+    border-color: rgb(226, 82, 113);
+    border-radius: 1em;
+
+    margin: 5em;
+    border-top-width: 1em;
+    margin-right: 30em;
+    margin-left: 30em;
+    margin-bottom: 40em;
+    
+    
+}
+.form {
+    text-align: center;
+    margin-top: 0em;
+    
+}
+
+.form-top {
+    margin-top: 1em;
+}
+
+.button {
+   border: 40em;
+   margin-right: 7em;
+ 
+}
