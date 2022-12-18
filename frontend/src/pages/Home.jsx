@@ -1,10 +1,17 @@
 import React from 'react'
+import Slider from '../components/Slider'
+import Categories from '../components/Categories'
+import Products from '../components/Products'
 
 
 function Home() {
     return (
-        <div>Hello</div>
-        // <h1>home</h1>
+        <div>
+          <Slider />
+          <Categories />
+          <Products />
+        </div>
+
     )
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import {  Search, ShoppingCart, ShoppingCartRoundedIcon } from '@mui/icons-material';
 import styled from 'styled-components'
-import { FaUser } from 'react-icons/fa'
+import { FaUser, FaSignInAlt, FaShoppingCart } from 'react-icons/fa'
 import './Header.css'
 
 const Container = styled.div`
-    height: 50px;
+    height: 55px;
     background-color: rgb(219, 76, 76);
     color: white;
 
@@ -79,9 +79,11 @@ function Header() {
                         <FaUser /> Register
                     </h4>
                     <h4 className='top'> 
-                    <ShoppingCart />  Cart </h4> */}
-                   <MenuItem style={{fontSize: '1.2em'}}> <FaUser />Account</MenuItem>
-                   <MenuItem> <ShoppingCart />Cart</MenuItem>
+                    <ShoppingCart />  Cart </h4> */} 
+                   <MenuItem style={{fontSize: '1.2em'}}>  <FaUser/>Register</MenuItem>
+                   <MenuItem style={{fontSize: '1.2em'}}> <FaSignInAlt />Login</MenuItem>
+                   <MenuItem style={{fontSize: '1.2em'}}>  <FaShoppingCart/>Cart</MenuItem>
+                   {/* <MenuItem> <ShoppingCart />Cart</MenuItem> */}
                 </Right>
             </Wrapper>
         </Container>
