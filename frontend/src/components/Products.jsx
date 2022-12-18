@@ -20,4 +20,4 @@ function Products() {
     )
 }
 
-export default Categories
+export default Products

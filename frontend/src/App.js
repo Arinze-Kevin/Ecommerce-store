@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Announcement from './components/Announcement'
 import Header from './components/Header'
+import Newsletter from './components/Newsletter'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -23,6 +24,7 @@ function App() {
             <Route path='/user' element={<User />} />
             <Route path='/cart' element={<Cart />} />
           </Routes>
+          <Newsletter />
         </div>
       </Router>
       <ToastContainer />
