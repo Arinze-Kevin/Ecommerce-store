@@ -1,7 +1,10 @@
 const express = require('express')
 require('./db/mongoose')
 const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
+const adminRouter = require('./routers/admin')
+const productRouter = require('./routers/product')
+const orderRouter = require('./routers/order')
+const cartRouter = require('./routers/cart')
 
 const app = express()
 const port = process.env.PORT
@@ -9,7 +12,10 @@ const port = process.env.PORT
 
 app.use(express.json())
 app.use(userRouter)
-app.use(taskRouter)
+app.use(adminRouter)
+app.use(productRouter)
+app.use(orderRouter)
+app.use(cartRouter)
 
 
 

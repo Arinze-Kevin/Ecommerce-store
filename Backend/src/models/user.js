@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const Task = require('./task')
+// const Task = require('./task')
 
 
 const userSchema = new mongoose.Schema({
@@ -23,15 +23,6 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    age: {
-        type: Number,
-        default: 0,
-        validate(value) {
-            if (value < 0) {
-                throw new Error('Age must be a positive number')
-            }
-        }
-    },
     password: {
         type: String,
         required: true,
@@ -48,19 +39,16 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         }
-    }],
-    avatar: {
-        type: Buffer
-    }
+    }]
 }, {
     timestamps: true
 })
 
-userSchema.virtual('tasks', {
-    ref: 'Task',
-    localField: '_id',
-    foreignField: 'owner'
-})
+// userSchema.virtual('tasks', {
+//     ref: 'Task',
+//     localField: '_id',
+//     foreignField: 'owner'
+// })
 
 // Hiding private datas we dont to display on users profile.
 userSchema.methods.toJSON = function () {
@@ -69,7 +57,6 @@ userSchema.methods.toJSON = function () {
 
     delete userObject.password
     delete userObject.tokens
-    delete userObject.avatar
 
     return userObject
 }
@@ -77,7 +64,7 @@ userSchema.methods.toJSON = function () {
 // Generating Authentication token
 userSchema.methods.generateAuthToken = async function () {
     const user = this
-    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, {expiresIn: "3d"})
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -112,11 +99,11 @@ userSchema.pre('save', async function (next) {
 })
 
 // Delete user tasks when user is removed
-userSchema.pre('remove', async function (next) {
-    const user = this
-    await Task.deleteMany({ owner: user._id })
-    next() 
-})
+// userSchema.pre('remove', async function (next) {
+//     const user = this
+//     await Task.deleteMany({ owner: user._id })
+//     next() 
+// })
 
 const User = mongoose.model('User', userSchema)
 
