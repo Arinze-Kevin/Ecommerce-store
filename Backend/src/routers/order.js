@@ -97,7 +97,7 @@ router.get("/orders/income", adminAuth, async (req, res) => {
                 }
             }
         ])
-        res.status(200).json(income)
+        res.status(200).send(income)
     } catch (err) {
         res.status(500).send(err)
     }
