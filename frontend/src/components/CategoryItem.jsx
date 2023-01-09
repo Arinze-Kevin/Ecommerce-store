@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   flex: 1;
@@ -35,14 +36,23 @@ const Button = styled.button`
    cursor: pointer;
    font-weight: 600;
 `;
+const Desc = styled.div`
+   font-weight: 700;
+   padding: 10px;
+   margin-left: 4em;
+   letter-spacing: 5px;
+   color: grey;
+   font-size: 20px
+`;
 
 function CategoryItem({item}) {
     return (
         <Container>
+            <Desc>{item.desc}</Desc> 
             <Image src={item.img}/>
             <Info>
                 <Title>{item.title}</Title>
-                <Button>SHOP NOW</Button>
+                <Button><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202)  '}} to={item.link}>SHOP NOW</Link></Button>
             </Info>
         </Container>
         

@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
+// position: fixed;
+  ${mobile({ width: '175%', height: '3em' })}
+   z-index: 4;
+   width: 100%;
    height:20px;
-   background-color: rgb(213, 213, 213);
+   background-color: rgb(219, 76, 76);
    color: black;
    display: flex;
    align-items: center;

@@ -2,6 +2,10 @@ import { React, useState } from 'react'
 import styled from 'styled-components'
 import { ArrowRight, ArrowLeft } from '@mui/icons-material';
 import { sliderItems } from '../data'
+import { Link } from 'react-router-dom';
+import { mobile } from '../responsive';
+
+
 
 const Container = styled.div`
     width: 100%;
@@ -9,10 +13,50 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
+    // background: yellow;
+    ${mobile({ display: 'flex', overflow: 'hidden',
+     position: 'relative', width: '33em' })}
+`;
+
+const Categories = styled.div`
+   z-index: 6;
+   background: white;
+   margin-right: 2em;
+   padding: 20px;
+   border-radius: 1em;
+   margin-top: 2.2em;
+   margin-left: 2em;
+   height: 77%
+   
+
+`;
+
+const Title2 = styled.h1`
+   color: grey;
+   font-weight: 700
+   
+`;
+
+
+const List = styled.ul`
+    font-weight: 500;
+    list-style: none;
+     padding: 0;
+     margin: o;
+     height: 70%
+    
+`;
+const ListItem = styled.li`
+//    width: 50%; 
+//    margin-bottom: 10px;
+     cursor: pointer;
+     height: 20%;
+   
 `;
 
 const Arrow = styled.div`
     width: 2em;
+    margin-left: 15em;
     height: 2em;
     background-color: grey;
     border-radius: 50%;
@@ -22,7 +66,7 @@ const Arrow = styled.div`
     top: 0;
     bottom: 0;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 4.5;
     margin: auto;
     left: ${props=> props.direction === 'left' && '10px'};
     right: ${props=> props.direction === 'right' && '10px'};
@@ -40,11 +84,11 @@ const Wrapper = styled.div`
     display: flex;
     transition: all 1.5s ease;
     transform: translateX(${(props) => props.slideIndex * -100}vw);
-`;
+   `;
 
 // const Slide = styled.div`
 //    display: flex;
-//    width: 100%;
+//    width: 100%
 // //    height: 100vh;
 //    align-items: center;
 // `;
@@ -55,6 +99,7 @@ const Slide = styled.div`
    display: flex;
    align-items: center;
    background-color: #${props=>props.bg};
+  
 `;
 
 
@@ -68,6 +113,8 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
+   ${mobile({  marginRight: '-3em' })}
+   
 `;
 
 // const Image = styled.img`
@@ -77,7 +124,13 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
 height: 80%;
-width: 100%;
+width: 71%;
+${mobile({ width: '250%' })}
+
+margin-left: 2em;
+
+
+
 `;
 
 // const InfoContainer = styled.div`
@@ -86,6 +139,11 @@ width: 100%;
 
 // `;
 
+const  CatContainer = styled.div`
+
+${mobile({ display: 'none' })}
+`;
+
 const InfoContainer = styled.div`
    fllex: 1;
    padding: 50px;
@@ -93,10 +151,11 @@ const InfoContainer = styled.div`
 //    background-color: white;
 //    opacity: 0.5;
 //    text-align: center;
-   margin-left: 21em;
+   margin-left: 14em;
    margin-right: 21em;
    margin-bottom: 9em;
 //    background-size: 1em;
+${mobile({ marginLeft: '22em' })}
 
 `;
 
@@ -127,6 +186,7 @@ const Desc = styled.p`
 // const Button = styled.button`
 // `;
 
+
 const Button = styled.button`
   padding: 10px;
   font-size: 20px;
@@ -151,10 +211,22 @@ function Slider() {
 
 
     return (
-
-
+    
+    
         <Container>
-            <Arrow direction='left' onClick={()=>handleClick('left')}>
+            <CatContainer style={{background: 'lightgrey', zIndex: '2' }}>
+        <Categories>
+            <Title2>CATEGORIES</Title2>
+            <List>
+                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202)  '}} to='/mensfashion'>Men's Fashion</Link></ListItem>
+                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/womensfashion'>Women's Fashion</Link></ListItem>
+                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/accessories'>Accessories</Link></ListItem>
+                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/health&beauty'>Health & Beauty</Link></ListItem>
+                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/gaming'>Gaming</Link></ListItem>
+            </List>
+        </Categories>
+        </CatContainer>
+            <Arrow style={{marginLeft: '20.5em'}} direction='left' onClick={()=>handleClick('left')}>
                  <ArrowLeft/>
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
@@ -173,9 +245,10 @@ function Slider() {
                  </Slide>
                 ))}  
             </Wrapper>
-            <Arrow direction='right' onClick={()=>handleClick('right')}>
+            <Arrow style={{marginRight: '2em'}} direction='right' onClick={()=>handleClick('right')}>
                 <ArrowRight/>
             </Arrow>
+            
         </Container>
 
 

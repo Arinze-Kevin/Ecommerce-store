@@ -7,14 +7,20 @@
     position: fixed;
 }
 
+.border {
+    margin-top: -10.3em;
+}
+
 .heading {
+    height: 20vh;
     text-align: center;
-    margin-top: 5em;
+    margin-top: 12em;
     border: 4em;
-    border-color: rgb(123, 8, 8);    
+    border-color: rgb(240, 240, 240);    
 }
 
 .borderr {
+    margin-top: none;
     border: 10px ridge;
     border-color: rgb(226, 82, 113);
     border-radius: 1em;
@@ -29,7 +35,8 @@
 }
 .form {
     text-align: center;
-    margin-top: 0em;
+    margin-top: 2em;
+    height: 60vh;
     
 }
 
@@ -40,5 +47,8 @@
 .button {
    border: 40em;
    margin-right: 7em;
+   margin-bottom: 4em;
+   text-align: center;
+   margin-left: 7em;
  
 }

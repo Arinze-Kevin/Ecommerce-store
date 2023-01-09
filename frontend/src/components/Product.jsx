@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
+import { mobile } from '../responsive';
 
 const Info = styled.div`
    position: absolute;
@@ -10,7 +11,7 @@ const Info = styled.div`
    width: 100%;
    height: 100%;
    display: flex;
-   z-index: 3;
+   z-index: 2;
    align-items: center;
    justify-content: center;
    transition: all 0.5s ease;
@@ -31,6 +32,8 @@ const Container = styled.div`
 
   &:hover ${Info}{
     opacity: 1;
+
+
   }
 `;
 const Circle = styled.div`

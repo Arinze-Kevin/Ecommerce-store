@@ -28,14 +28,14 @@ function Register() {
 
     return (
         <>
-        <section className='heading'>
+        <section style={{textAlign: 'center', marginTop: '3em'}}>
             <h1>
                 <FaUser /> Login
             </h1>
             <h3>Please login</h3>
         </section>
 
-         <section className='form'>
+         <section style={{textAlign: 'center'}}>
             <form onSubmit={onSubmit}>
                 <div className='form-top'>
                     <input

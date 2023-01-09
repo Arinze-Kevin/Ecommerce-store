@@ -1,14 +1,16 @@
 import { Send } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive';
 
 const Container = styled.div`
     height: 60vh;
-    background-color: red;
+    background-color: rgb(219, 76, 76);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    ${mobile({ width: '35em' })}
 `;
 const Title = styled.h1`
     font-size: 70px;
