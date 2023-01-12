@@ -15,6 +15,7 @@ import WomensFashion from './pages/WomensFashion'
 import Gaming from './pages/Gaming'
 import HealthBeauty from './pages/HealthBeauty'
 import Accessories from './pages/Accessories'
+import ProductPage from './pages/ProductPage'
 import Pay from './pages/Pay'
 import Success from './pages/Success'
 
@@ -36,6 +37,7 @@ function App() {
             <Route path='/gaming' element={<Gaming />} />
             <Route path='/accessories' element={<Accessories />} />
             <Route path='/health&beauty' element={<HealthBeauty />} />
+            <Route path='/product/:id' element={<ProductPage />} />
             <Route path='/pay' element={<Pay />} />
             <Route path='/success' element={<Success />} />
           </Routes>

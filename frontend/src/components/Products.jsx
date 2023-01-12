@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { popularProducts } from '../data'
 import Product from './Product'
+import { popularProducts } from '../data'
 import { mobile } from '../responsive'
 
 const Container = styled.div`
@@ -12,9 +13,11 @@ const Container = styled.div`
 `;
 
 function Products() {
+    
+
     return (
         <Container>
-            {popularProducts.map((item) => (
+            {popularProducts.slice(0, 8).map((item) => (
                 <Product item={item} key={item.id} />
             ))}
         </Container>

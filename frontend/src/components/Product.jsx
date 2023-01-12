@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import { mobile } from '../responsive';
+import { Link } from 'react-router-dom';
 
 const Info = styled.div`
    position: absolute;
@@ -78,7 +79,9 @@ function Product({item}) {
                     <ShoppingCartOutlined/>
                 </Icon>
                 <Icon>
+                    <Link to={`/product/${item._id}`}>
                     <SearchOutlined/>
+                    </Link>
                 </Icon>
                 <Icon>
                     <FavoriteBorderOutlined/>
@@ -88,5 +91,6 @@ function Product({item}) {
         
     )
 }
+
 
 export default Product

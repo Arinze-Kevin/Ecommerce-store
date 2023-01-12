@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { womensFashionData } from '../data';
 import Product from '../components/Product';
+import axios from 'axios';
 
 const Container = styled.div`   
 display: flex;
@@ -54,6 +54,45 @@ function WomensFashion() {
       [e.target.name]: value,
     });
   };
+  
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/products?category=womensfashion')
+        setProducts(res.data)
+      } catch (err) {}
+    }
+    getProducts()
+  })
+
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((item) =>
+      Object.entries(filters).every(([key, value]) =>
+      item[key].includes(value)
+      )
+      )
+    )
+  }, [products, filters])
+
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      )
+    } else if (sort === "asc") {
+      setFilteredProducts((prev) =>
+       [...prev].sort((a, b) => a.price - b.price)
+      )
+    } else {
+      setFilteredProducts((prev) =>
+       [...prev].sort((a, b) => b.price - a.price)
+      )
+    }
+  }, [sort])
 
     return (
         <Container>
@@ -92,7 +131,7 @@ function WomensFashion() {
                 </Select>
               </Filter>
             </FilterContainer>
-          {womensFashionData.map((item) => (
+          {filteredProducts.map((item) => (
             <Product item={item} key={item.id} filters={filters} sort={sort}/>
           ))}
         </Container>

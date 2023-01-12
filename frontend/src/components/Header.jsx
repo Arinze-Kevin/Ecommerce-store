@@ -5,6 +5,8 @@ import { FaUser, FaSignInAlt, FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import { mobile } from '../responsive';
 import './Header.css'
+import { Badge } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
 ${mobile({ height: 'none' })}
@@ -86,6 +88,8 @@ const MenuItem = styled.div`
 
 
 function Header() {
+    const quantity = useSelector(state=>state.cart.quantity)
+    
     return (
         <Container>
             <Wrapper> 
@@ -104,8 +108,8 @@ function Header() {
                     <ShoppingCart />  Cart </h4> */} 
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/cart'>  <FaShoppingCart/>Cart</Link></MenuItem>
-                   {/* <MenuItem> <ShoppingCart />Cart</MenuItem> */}
+                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/cart'> <Badge style={{marginRight: '0.6em'}} badgeContent={quantity} color='info' ><FaShoppingCart/></Badge>Cart</Link></MenuItem>
+                   {/* <MenuItem> <ShoppingCart />Cart</MenuItem>  */}
                 </Right>
             </Wrapper>
         </Container>
