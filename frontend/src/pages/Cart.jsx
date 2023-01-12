@@ -187,6 +187,7 @@ function Cart() {
         stripeToken && makeRequest()
     }, [stripeToken, cart.total, navigate]);
 
+    
     return (
         <Container>
             <Wrapper>
