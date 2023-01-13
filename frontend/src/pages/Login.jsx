@@ -1,71 +1,95 @@
-import { useState } from 'react'
-import './Pages.css'
-// import {toast} from 'react-toastify'
-import { FaUser } from 'react-icons/fa'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import styled from "styled-components";
+import { login } from "../redux/apiCalls";
+import {mobile} from '../responsive';
 
+const Container = styled.div`
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+   ),
+   url('')
+     center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+`;
 
+const Wrapper = styled.div`
+   width: 25%;
+   padding: 20px;
+   background-color: white;
+   ${mobile({ width: '75%' })}
+`;
 
-function Register() {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    })
+const Title = styled.h1`
+   font-size: 24px;
+   font-weight: 300;
+`;
 
-    const { email, password } = formData
+const Form = styled.form`
+   display: flex;
+   flex-direction: column;
+`;
 
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }))
+const Input = styled.input`
+   flex: 1;
+   min-width: 40%;
+   margin: 10px 0;
+   padding: 10px;
+`;
+
+const Button = styled.button`
+   width: 40%;
+   border: none;
+   padding: 15px 20px;
+   background-color: teal;
+   color: white;
+   cursor: pointer;
+   margin-bottom: 10px;
+`;
+
+const Link = styled.a`
+   margin: 5px 0px;
+   font-size: 12px;
+   text-decoration: underline;
+   cursor: pointer;
+`;
+
+const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        login(dispatch, { email, password })
     }
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-
-
-    }
-
+    
     return (
-        <>
-        <section style={{textAlign: 'center', marginTop: '3em'}}>
-            <h1>
-                <FaUser /> Login
-            </h1>
-            <h3>Please login</h3>
-        </section>
-
-         <section style={{textAlign: 'center'}}>
-            <form onSubmit={onSubmit}>
-                <div className='form-top'>
-                    <input
-                     type='email'
-                     id='email'
-                     name='email'
-                     value={email}
-                     onChange={onChange}
-                     placeholder='Enter your email'
-                     required
-                      />
-                </div>
-                <div className='form-top'>
-                    <input
-                     type='password'
-                     id='password'
-                     name='password'
-                     value={password}
-                     onChange={onChange}
-                     placeholder='Enter password'
-                     required
-                      />
-                </div>
-                <div className='button form-top'>
-                    <button>Submit</button>
-                </div>
-            </form>
-        </section>
-        </>
+        <Container>
+            <Wrapper>
+                <Title>SIGN IN</Title>
+                <Form>
+                    <Input 
+                       placeholder="Email" 
+                       onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Input 
+                        placeholder="Password"
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                    <Button onClick={handleClick}>LOGIN</Button>
+                    <Link>DON'T HAVE AN ACCOUNT?</Link>
+                    <Link>CREATE A NEW ACCOUNT</Link>
+                </Form>
+            </Wrapper>
+        </Container>
     )
 }
 
-export default Register
+export default Login
