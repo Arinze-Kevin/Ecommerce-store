@@ -66,7 +66,7 @@ function MensFashion() {
       } catch (err) {}
     }
     getProducts()
-  })
+  },[])
 
   useEffect(() => {
     setFilteredProducts(

@@ -7,8 +7,8 @@ import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Register from './pages/Register'
 import User from './pages/User'
+import Register from './pages/Register'
 import Cart from './pages/Cart'
 import MensFashion from './pages/MensFashion'
 import WomensFashion from './pages/WomensFashion'
@@ -22,6 +22,7 @@ import { useSelector } from 'react-redux'
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
+ 
   return (
     <>
       <Router>
@@ -30,9 +31,10 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={user ? <Navigate to='/'/> : <Login />} />
-            <Route path='/register' element={user ? <Navigate to='/'/> : <Register />} />
+            <Route path='/login' element={user ? <Navigate to='/user'/> : <Login />} />
+            {/* <Route path='/register' element={user ? <Navigate to='/user'/> : <Register />} /> */}
             <Route path='/user' element={<User />} />
+            <Route path='/register' element={<Register />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/mensfashion' element={<MensFashion />} />
             <Route path='/womensfashion' element={<WomensFashion />} />

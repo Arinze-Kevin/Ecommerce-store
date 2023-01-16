@@ -66,7 +66,7 @@ function WomensFashion() {
       } catch (err) {}
     }
     getProducts()
-  })
+  },[])
 
   useEffect(() => {
     setFilteredProducts(
@@ -109,7 +109,7 @@ function WomensFashion() {
                   <Option>Red</Option>
                   <Option>Blue</Option>
                   <Option>Yellow</Option>
-                  <Option>Green</Option>
+                  <Option>Gray</Option>
                 </Select>
                 <Select name="size" onChange={handleFilters}>
                   <Option disabled>

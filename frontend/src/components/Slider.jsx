@@ -240,7 +240,7 @@ function Slider() {
                        <Desc>
                           {item.desc}
                        </Desc>
-                       <Button>SHOP NOW</Button>  
+                       <Button><Link to={`/mensfashion`}>SHOP NOW</Link></Button> 
                    </InfoContainer>
                  </Slide>
                 ))}  

@@ -1,16 +1,15 @@
 import { Add, Remove } from '@mui/icons-material';
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { userRequest } from '../requestMethods';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { deleteProduct } from '../redux/cartRedux';
 
 const KEY="pk_test_51MOErXJ4lUCToH2aVTr9hnOyWNXQsS4e3C3IrbOEtUpeeMGUt8GS7szI1ZYPh1Tlzin6xK5hBufu5krYbEmRPpGJ00FyttNVHh"
 
 const Container = styled.div`
-
 `;
 
 const Wrapper = styled.div`
@@ -40,7 +39,6 @@ const TopButton = styled.button`
 `;
 
 const TopTexts = styled.div`
-
 `;
 
 const TopText = styled.span`
@@ -96,6 +94,12 @@ const ProductColor = styled.div`
 
 const ProductSize = styled.span`
    
+`;
+const RemoveCart = styled.button`
+   cursor: pointer
+`;
+const RemoveCart2 = styled.span`
+   cursor: pointer
 `;
 
 const PriceDetail = styled.div`
@@ -169,6 +173,8 @@ function Cart() {
     const cart = useSelector(state=>state.cart);
     const [stripeToken, setStripeToken] = useState(null);
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
 
     const onToken = (token) => {
         setStripeToken(token)
@@ -187,18 +193,23 @@ function Cart() {
         stripeToken && makeRequest()
     }, [stripeToken, cart.total, navigate]);
 
+  
+   const deleteItem = (id)=>{
+      dispatch(deleteProduct({id}))
+   }
+
     
     return (
         <Container>
             <Wrapper>
-                <Title>YOUR BAG</Title>
+                <Title>SHOPPING CART</Title>
                 <Top>
-                    <TopButton>CONTINUE SHOPPING</TopButton>
-                    <TopTexts>
+                    <TopButton><Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/'>CONTINUE SHOPPING</Link></TopButton>
+                    {/* <TopTexts>
                         <TopText>Shopping Bag(2)</TopText>
                         <TopText>Your Wishlist (0)</TopText>
-                    </TopTexts>
-                    <TopButton type='filled'>CHECKOUT NOW</TopButton>
+                    </TopTexts> */}
+                    <TopButton type='filled'>REMOVE ALL CART</TopButton>
                 </Top>
                 <Bottom>
                     <Info>
@@ -217,6 +228,9 @@ function Cart() {
                                     <ProductSize>
                                         <b>Size:</b> {product.size}
                                     </ProductSize>
+                                    <RemoveCart2>
+                                        <RemoveCart onClick={()=>deleteItem(product._id)}>REMOVE CART</RemoveCart>
+                                    </RemoveCart2>
                                 </Details>
                             </ProductDetail>
                             <PriceDetail>

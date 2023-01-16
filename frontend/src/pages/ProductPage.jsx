@@ -64,7 +64,7 @@ const FilterColor = styled.div`
     height: 20px;
     border-radius: 50%;
     background: black;
-    background-color: ${props=>props.color};
+    background-color: ${props => props.color};
     margin: 0px 5px;
     cursor: pointer;
 `;
@@ -127,65 +127,68 @@ function ProductPage() {
     const [size, setSize] = useState('')
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        const getProduct = async ()=>{
-            try{
-                const res = await publicRequest.get('/products/'+ id)
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get('/products/' + id)
                 setProduct(res.data)
-            }catch (err) {}
+            } catch (err) { }
         }
         getProduct()
     }, [id])
 
     const handleQuantity = (type) => {
         if (type === 'dec') {
-           quantity > 1 && setQuantity(quantity - 1)
+            quantity > 1 && setQuantity(quantity - 1)
         } else {
             setQuantity(quantity + 1)
         }
     };
 
+    console.log("product!!", product)
     const handleClick = () => {
         dispatch(addProduct({ ...product, quantity, color, size }))
     };
 
     return (
-      <Container>
-        <Wrapper>
-            <ImgContainer>
-                <Image src={product.img} />
-            </ImgContainer>
-            <InfoContainer>
-                <Title>{product.title}</Title>
-                <Desc>{product.desc}</Desc>
-                <Price>$ {product.price}</Price>
-                <FilterContainer>
-                    <Filter>
-                        <FilterTitle>Color</FilterTitle>
-                        {product.color?.map((c) => (
-                            <FilterColor color={c} key={c} onClick={()=>setColor} />
-                        ))}
-                    </Filter>
-                    <Filter>
-                        <FilterTitle>Size</FilterTitle>
-                        <FilterSize onChange={(e) => setSize(e.target.value)}>
-                            {product.size?.map((s) => (
-                                <FilterSizeOption key={s}>{s}</FilterSizeOption>
+        <Container>
+            <Wrapper>
+                <ImgContainer>
+                    <Image src={product.img} />
+                </ImgContainer>
+                <InfoContainer>
+                    <Title>{product.title}</Title>
+                    <Desc>{product.desc}</Desc>
+                    <Price>$ {product.price}</Price>
+                    <FilterContainer>
+                        <Filter>
+                            <FilterTitle>Color</FilterTitle>
+                            {product.color?.map((c) => (
+                                <FilterColor color={c} key={c} onClick={() => setColor} />
                             ))}
-                        </FilterSize>
-                    </Filter>
-                </FilterContainer>
-                <AddContainer>
-                    <AmountContainer>
-                        <Remove onClick={()=>handleQuantity('dec')}/>
-                        <Amount>{quantity}</Amount>
-                        <Add onClick={()=>handleQuantity('inc')}/>
-                    </AmountContainer>
-                    <Button onClick={handleClick}>ADD TO CART</Button>
-                </AddContainer>
-            </InfoContainer>
-        </Wrapper>
-      </Container>  
+                        </Filter>
+                        <Filter>
+                            <FilterTitle>Size</FilterTitle>
+                            <FilterSize onChange={(e) => setSize(e.target.value)}>
+                                {product.size?.map((s) => (
+                                    <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                                ))}
+                            </FilterSize>
+                        </Filter>
+                    </FilterContainer>
+                    <AddContainer>
+                        <AmountContainer>
+                            <Remove onClick={() => handleQuantity('dec')} />
+                            <Amount>{quantity}</Amount>
+                            <Add onClick={() => handleQuantity('inc')} />
+                        </AmountContainer>
+                        {/* <Link onClick={handleClick} to={`/cart/`}> */}
+                            <Button onClick={handleClick}>ADD TO CART</Button>
+                        {/* </Link> */}
+                    </AddContainer>
+                </InfoContainer>
+            </Wrapper>
+        </Container>
     )
 }
 

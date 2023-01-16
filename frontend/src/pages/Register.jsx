@@ -1,184 +1,111 @@
-import { useState } from 'react'
-import './Pages.css'
-import {toast} from 'react-toastify'
-import { FaUser } from 'react-icons/fa'
-import styled from 'styled-components'
-
-
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import { register } from "../redux/apiCalls";
+import {mobile} from '../responsive';
 
 const Container = styled.div`
-text-align: center;
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+   ),
+   url('https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg')
+     center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 `;
 
-const Container2 = styled.div`
-  align-items: center;
-
-`;
-const Text = styled.div`
-
-`;
-
-const Form1 = styled.div`
-
+const Wrapper = styled.div`
+   width: 25%;
+   padding: 20px;
+   background-color: white;
+   ${mobile({ width: '75%' })}
 `;
 
-function Register() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        password2: '',
-    })
+const Title = styled.h1`
+   font-size: 24px;
+   font-weight: 300;
+`;
 
-    const { name, email, password, password2 } = formData
+const Form = styled.form`
+   display: flex;
+   flex-direction: column;
+`;
 
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }))
-    }
+const Input = styled.input`
+   flex: 1;
+   min-width: 40%;
+   margin: 10px 0;
+   padding: 10px;
+`;
 
-    const onSubmit = (e) => {
-        e.preventDefault()
+const Button = styled.button`
+   width: 40%;
+   border: none;
+   padding: 15px 20px;
+   background-color: teal;
+   color: white;
+   cursor: pointer;
+   margin-bottom: 10px;
+   &:disabled{
+    color: green;
+    cursor: not-allowed;
+   }
+`;
 
-        if(password !== password2) {
-            toast.error('Passwords do not match')
-        }
+const Link = styled.a`
+   margin: 5px 0px;
+   font-size: 12px;
+   text-decoration: underline;
+   cursor: pointer;
+`;
+
+const Error = styled.span`
+   color: red;
+`;
+
+const Register = () => {
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
+    const { isFetching, error } = useSelector((state) => state.user)
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        register(dispatch, { fullName, email, password })
+        console.log(handleClick)
     }
 
     return (
         <Container>
-            <Container2>
-            <Text>
-             <h1>
-                <FaUser /> Register
-            </h1>
-            <h3>Please create an account</h3>
-             </Text>
-            
-            <Form1>
-            <form onSubmit={onSubmit}>
-               <div className='form-top'>
-                    <input
-                     type='text'
-                     id='name'
-                     name='name'
-                     value={name}
-                     onChange={onChange}
-                     placeholder='Enter your name'
-                     required
-                      />
-                </div>
-                <div className='form-top'>
-                    <input
-                     type='email'
-                     id='email'
-                     name='email'
-                     value={email}
-                     onChange={onChange}
-                     placeholder='Enter your email'
-                     required
-                      />
-                </div>
-                <div className='form-top'>
-                    <input
-                     type='password'
-                     id='password'
-                     name='password'
-                     value={password}
-                     onChange={onChange}
-                     placeholder='Enter password'
-                     required
-                      />
-                </div>
-                <div className='form-top'>
-                <input  
-                     type='password'
-                     id='password2'
-                     name='password2'
-                     value={password2}
-                     onChange={onChange}
-                     placeholder='Confirm password'
-                     required
-                      />
-                </div>
-                <div className='button form-top'>
-                    <button>Submit</button>
-                </div>
-            </form>
-            </Form1>
-            </Container2>
+            <Wrapper>
+                <Title>SIGN UP</Title>
+                <Form>
+                <Input 
+                       placeholder="Full Name" 
+                       onChange={(e) => setFullName(e.target.value)}
+                    />
+                    <Input 
+                       placeholder="Email" 
+                       onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Input 
+                        placeholder="Password"
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                    <Button onClick={handleClick} disabled={isFetching}>SUBMIT</Button>
+                    {error && <Error>Something went wrong...</Error>}
+                    <Link>DON'T HAVE AN ACCOUNT?</Link>
+                    <Link>CREATE A NEW ACCOUNT</Link>
+                </Form>
+            </Wrapper>
         </Container>
-
- 
-
-        // <div className='border'>
-        /* <section className='heading'>
-            <h1 style={{marginTop: '10em'}}>
-                <FaUser /> Register
-            </h1>
-            <h3>Please create an account</h3>
-        </section> */
-
-        //  <section className='form'>
-            // <h1>
-            //     <FaUser /> Register
-            // </h1>
-            // <h3>Please create an account</h3>
-            // <form onSubmit={onSubmit}>
-            //    <div className='form-top'>
-            //         <input
-            //          type='text'
-            //          id='name'
-            //          name='name'
-            //          value={name}
-            //          onChange={onChange}
-            //          placeholder='Enter your name'
-            //          required
-            //           />
-            //     </div>
-            //     <div className='form-top'>
-            //         <input
-            //          type='email'
-            //          id='email'
-            //          name='email'
-            //          value={email}
-            //          onChange={onChange}
-            //          placeholder='Enter your email'
-            //          required
-            //           />
-            //     </div>
-            //     <div className='form-top'>
-            //         <input
-            //          type='password'
-            //          id='password'
-            //          name='password'
-            //          value={password}
-            //          onChange={onChange}
-            //          placeholder='Enter password'
-            //          required
-            //           />
-            //     </div>
-            //     <div className='form-top'>
-            //     <input  
-            //          type='password'
-            //          id='password2'
-            //          name='password2'
-            //          value={password2}
-            //          onChange={onChange}
-            //          placeholder='Confirm password'
-            //          required
-            //           />
-            //     </div>
-            //     <div className='button form-top'>
-            //         <button>Submit</button>
-            //     </div>
-            // </form>
-        // </section>
-        /* // </div> */
     )
-
 }
 
 export default Register

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import { mobile } from '../responsive';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../redux/cartRedux';
+import { publicRequest } from '../requestMethods'
 
 const Info = styled.div`
    position: absolute;
@@ -20,7 +23,9 @@ const Info = styled.div`
    cursor: pointer;
 `;
 
-const Container = styled.div`
+const Container = styled.div``;
+
+const Container2 = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
@@ -69,28 +74,103 @@ const Icon = styled.button`
     }
 `;
 
-function Product({item}) {
+const Title = styled.div`
+width: 100%;
+    margin-bottom: 10em;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: rgb(234, 127, 127);
+        transform: scale(1.1);
+    }
+   
+`;
+
+function Product({ item }) {
+
+    const dispatch = useDispatch()
+    const [product, setProduct] = useState({})
+    const location = useLocation()
+    const id = location.pathname.split("/")[2]
+    const [quantity, setQuantity] = useState(1)
+    const [color, setColor] = useState('')
+    const [size, setSize] = useState('')
+
+
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get(`/products/${item._id}`)
+                setProduct(res.data)
+            } catch (err) { }
+        }
+        getProduct()
+    }, [])
+
+    const handleClick = () => {
+        dispatch(addProduct({ ...product, quantity, color, size }))
+    };
+
+    console.log("product@@", product)
     return (
         <Container>
-            <Circle/>
-            <Image src={item.img} />
-            <Info>
-                <Icon>
-                    <ShoppingCartOutlined/>
-                </Icon>
-                <Icon>
-                    <Link to={`/product/${item._id}`}>
-                    <SearchOutlined/>
-                    </Link>
-                </Icon>
-                <Icon>
-                    <FavoriteBorderOutlined/>
-                </Icon>
-            </Info>
+            <Container2>
+                <Circle />
+                <Image src={item.img} />
+                <Info>
+                    <Icon>
+                        <Link to={`/cart/`}>
+                        <ShoppingCartOutlined onClick={handleClick}/>
+                        </Link>
+                    </Icon>
+                    <Icon>
+                        <Link to={`/product/${item._id}`}>
+                            <SearchOutlined />
+                        </Link>
+                    </Icon>
+                    <Icon>
+                        <FavoriteBorderOutlined />
+                    </Icon>
+                </Info>
+            </Container2>
+            <Title>
+                <h3>{item.title} <br />$ {item.price}</h3>
+            </Title>
         </Container>
-        
+
     )
 }
+
+// function Product({item}) {
+//     return (
+//         <Container>
+//             <Circle/>
+//             <Image src={item.img} />
+//             <Info>
+//                 <Icon>
+//                     <ShoppingCartOutlined/>
+//                 </Icon>
+//                 <Icon>
+//                     <Link to={`/product/${item._id}`}>
+//                     <SearchOutlined/>
+//                     </Link>
+//                 </Icon>
+//                 <Icon>
+//                     <FavoriteBorderOutlined/>
+//                 </Icon>
+//             </Info>
+//         </Container>
+
+//     )
+// }
 
 
 export default Product
