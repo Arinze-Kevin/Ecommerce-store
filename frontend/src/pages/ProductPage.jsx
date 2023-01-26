@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { publicRequest } from '../requestMethods';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
+import { cart } from '../redux/apiCalls';
 
 const Container = styled.div`
 
@@ -145,9 +146,10 @@ function ProductPage() {
         }
     };
 
-    console.log("product!!", product)
+    // console.log("product!!", product)
+    
     const handleClick = () => {
-        dispatch(addProduct({ ...product, quantity, color, size }))
+        cart(dispatch, { ...product, quantity, color, size })
     };
 
     return (

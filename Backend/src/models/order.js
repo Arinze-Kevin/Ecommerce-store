@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+// const User = require('./user')
 
 
 const orderSchema = new mongoose.Schema({
@@ -13,7 +14,12 @@ const orderSchema = new mongoose.Schema({
         quantity: {
             type: Number,
             default: 1
-        }
+        },
+        // owner: {
+        //     type: mongoose.Schema.Types.ObjectId,
+        //     required: true,
+        //     ref: 'User'
+        // }
 
     }],
     amount: { type: Number, required: true },

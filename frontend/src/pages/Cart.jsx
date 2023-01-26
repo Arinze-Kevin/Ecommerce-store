@@ -166,6 +166,7 @@ const Button = styled.button`
    background-color: black;
    color: white;
    font-weight: 600;
+   cursor: pointer;
 `;
 
 
@@ -185,9 +186,12 @@ function Cart() {
             try {
                 const res = await userRequest.post('/api/checkout/payment', {
                     tokenId: stripeToken.id,
-                    amount: 500,
-                })        
+                    amount: cart.total * 100,
+                })  
+                if (res.data.paid === true)  
                 navigate('/success', { data: res.data })
+                cart(dispatch(deleteItem()))
+               //  console.log('Stripppppeee', res.data.paid === true)
             } catch {}
         }
         stripeToken && makeRequest()
@@ -198,6 +202,10 @@ function Cart() {
       dispatch(deleteProduct({id}))
    }
 
+   // const deleteAllItems = ()=>{
+   //    dispatch(deleteAllProducts())
+   // }
+
     
     return (
         <Container>
@@ -205,15 +213,11 @@ function Cart() {
                 <Title>SHOPPING CART</Title>
                 <Top>
                     <TopButton><Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/'>CONTINUE SHOPPING</Link></TopButton>
-                    {/* <TopTexts>
-                        <TopText>Shopping Bag(2)</TopText>
-                        <TopText>Your Wishlist (0)</TopText>
-                    </TopTexts> */}
-                    <TopButton type='filled'>REMOVE ALL CART</TopButton>
+                    {/* <TopButton type='filled' onClick={()=>deleteAllItems()}>REMOVE ALL CART</TopButton> */}
                 </Top>
                 <Bottom>
                     <Info>
-                        {cart.products.map((product) => (
+                        {cart?.products?.map((product) => (
                         <Product>
                             <ProductDetail>
                                 <Image src={product.img} />

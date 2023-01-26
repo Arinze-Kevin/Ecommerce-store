@@ -1,12 +1,11 @@
 import React from 'react'
-import {  Search, ShoppingCart, ShoppingCartRoundedIcon } from '@mui/icons-material';
+import {  Search } from '@mui/icons-material';
 import styled from 'styled-components'
 import { FaUser, FaSignInAlt, FaShoppingCart } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { mobile } from '../responsive';
-import './Header.css'
 import { Badge } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Container = styled.div`
 ${mobile({ height: 'none' })}
@@ -88,6 +87,11 @@ const MenuItem = styled.div`
 
 
 function Header() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { user } = useSelector((state) => state.user.currentUser) || {}
+    // console.log(user.tokens)
+
     const quantity = useSelector(state=>state.cart.quantity)
     
     return (
@@ -101,19 +105,15 @@ function Header() {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {/* <h4 className='topone'>
-                        <FaUser /> Register
-                    </h4>  
-                    <h4 className='top'> 
-                    <ShoppingCart />  Cart </h4> */} 
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
+                   {user ? (<Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/user'><h3><FaUser/> Hi, {user.name}</h3></Link>) : ( 
+                    <> <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
+                   </> )}
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/cart'> 
                    {!!quantity && <Badge style={{marginRight: '0.6em'}} badgeContent={quantity} color='info' >
                     <FaShoppingCart/>
                     </Badge>}
                     Cart</Link></MenuItem>
-                   {/* <MenuItem> <ShoppingCart />Cart</MenuItem>  */}
                 </Right>
             </Wrapper>
         </Container>

@@ -21,7 +21,7 @@ import Success from './pages/Success'
 import { useSelector } from 'react-redux'
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
+  // const user = useSelector((state) => state.user.currentUser);
  
   return (
     <>
@@ -31,10 +31,11 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={user ? <Navigate to='/user'/> : <Login />} />
+            {/* <Route path='/login' element={user ? <Navigate to='/user'/> : <Login />} /> */}
             {/* <Route path='/register' element={user ? <Navigate to='/user'/> : <Register />} /> */}
             <Route path='/user' element={<User />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/mensfashion' element={<MensFashion />} />
             <Route path='/womensfashion' element={<WomensFashion />} />

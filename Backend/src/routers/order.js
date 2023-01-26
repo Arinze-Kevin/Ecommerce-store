@@ -10,7 +10,8 @@ const router = new express.Router()
 // Create a new order
 router.post('/orders', auth, async (req, res) => {
     const order = new Order({
-        ...req.body
+        ...req.body,
+        // owner: req.user._id
     })
 
     try {
@@ -58,7 +59,7 @@ router.delete('/orders/:id', adminAuth, async (req, res) => {
 // GET USER ORDER
 router.get('/orders/me', auth, async (req, res) => {
     try {
-        const orders = await Order.find({ _id: req.params.id, owner: req.user._id });
+        const orders = await Order.find();
         res.status(200).json(orders)
     } catch (err) {
         res.status(500).json(err)

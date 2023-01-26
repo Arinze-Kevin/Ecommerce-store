@@ -1,8 +1,15 @@
 import axios from "axios";
+import { token } from "./redux/apiCalls";
+
+const user = JSON.parse(localStorage.getItem('persist:root'));
+const currentUser = JSON.parse(user?.user || '');
+const auth = currentUser?.currentUser?.user?.tokens?.slice(-1)
+console.log('authhhhh',auth)
 
 const BASE_URL = "http://localhost:5000/";
-const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JjODJiYjJkYjVhZTM5MWM4NTUxOTEiLCJpYXQiOjE2NzMzMzk0NzUsImV4cCI6MTY3MzU5ODY3NX0.MK8r5QkHNKBceo73E_zhprbXD6Xe93m9HGCoU-MpTYk"
+const TOKEN = !auth ? '' : auth[0].token
+// const TOKEN = !TOKENS ? [] : TOKENS 
+
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL,
@@ -10,5 +17,5 @@ export const publicRequest = axios.create({
 
 export const userRequest = axios.create({
     baseURL: BASE_URL,
-    header: { token: `Bearer  ${TOKEN}`}
+    headers: { "Authorization": `Bearer ${TOKEN}` }
 })
