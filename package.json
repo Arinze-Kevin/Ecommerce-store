@@ -21,8 +21,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd ./dev.env node dist/index.js",
-    "build": "env-cmd ./dev.env babel Backend -d dist",
+    "start": "env-cmd ./dev.env node dist/src/index.js",
+    "build": "env-cmd ./dev.env babel Backend/src -d dist",
     "client": "npm start --prefix frontend",
     "server": "env-cmd ./dev.env nodemon --exec babel-node backend/src/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
