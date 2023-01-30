@@ -15,7 +15,7 @@ router.post('/admins', async (req, res) => {
         const token = await admin.generateAuthToken()
         res.status(201).send({ admin, token })
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).send(e) 
     }
 })
 
