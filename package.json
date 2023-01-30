@@ -1,13 +1,11 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "colors": "^1.4.0",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "express-async-handler": "^1.2.0",
     "form-data": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "module_name": "^1.0.0",
@@ -21,12 +19,12 @@
   },
   "name": "e-commerce-app",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "babel backend -d dist",
+    "start": "env-cmd ./dev.env node dist/src/index.js",
+    "build": "env-cmd ./dev.env babel Backend/src -d dist",
     "client": "npm start --prefix frontend",
-    "server": "nodemon --exec babel-node backend/server.js",
+    "server": "env-cmd ./dev.env nodemon --exec babel-node backend/src/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "engines": {
