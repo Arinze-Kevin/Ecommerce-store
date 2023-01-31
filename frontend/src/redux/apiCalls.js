@@ -40,7 +40,7 @@ export const token = () => {
 }
 // Add order to backend
 export const order = async (dispatch, product) => {
-    const BASE_URL = "http://localhost:5000/";
+    const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
     const {_id, quantity} = product
     const user = JSON.parse(localStorage.getItem('persist:root'))
     const currentUser = JSON.parse(user.user)
@@ -60,7 +60,7 @@ export const order = async (dispatch, product) => {
         ]
     }
     try {
-        const res = await userAuth.post('/api/orders', payload)
+        const res = await userAuth.post('/api/orders/create', payload)
         if(res.data) alert('Successful')
         dispatch(addProduct(product))
     } catch (err) {
@@ -72,7 +72,7 @@ export const order = async (dispatch, product) => {
 
 // Add carts to backend
 export const cart = async (dispatch, product) => {
-    const BASE_URL = "http://localhost:5000/";
+    const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
     const {_id, quantity} = product
     const user = JSON.parse(localStorage.getItem('persist:root'))
     const currentUser = JSON.parse(user.user)
@@ -92,7 +92,7 @@ export const cart = async (dispatch, product) => {
         ]
     }
     try {
-        const res = await userAuth.post('/api/carts', payload)
+        const res = await userAuth.post('/api/carts/create', payload)
         if(res.data) alert('Successful')
         dispatch(addProduct(product))
     } catch (err) {

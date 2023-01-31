@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-import { userRequest } from '../requestMethods';
+import { userRequest, publicRequest } from '../requestMethods';
 import { Link, useNavigate } from 'react-router-dom';
 import { deleteProduct } from '../redux/cartRedux';
 
@@ -184,7 +184,7 @@ function Cart() {
     useEffect(()=> {
         const makeRequest = async () => {
             try {
-                const res = await userRequest.post('/api/checkout/payment', {
+                const res = await publicRequest.post('/api/checkout/payment', {
                     tokenId: stripeToken.id,
                     amount: cart.total * 100,
                 })  

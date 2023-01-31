@@ -6,7 +6,7 @@ import { token } from "./redux/apiCalls";
 // const auth = currentUser?.currentUser?.user?.tokens?.slice(-1)
 // console.log('authhhhh',auth)
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
 // const TOKEN = !auth ? '' : auth[0].token
 // const TOKEN = !TOKENS ? [] : TOKENS 
 

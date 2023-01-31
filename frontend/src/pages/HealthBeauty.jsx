@@ -61,7 +61,7 @@ function HealthBeauty() {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products/all?category=health&beauty')
+        const res = await axios.get('https://ecommerce-app-79uw.onrender.com/api/products/all?category=health&beauty')
         setProducts(res.data)
       } catch (err) {}
     }
