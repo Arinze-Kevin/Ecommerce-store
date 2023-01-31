@@ -7,7 +7,7 @@ var _require = require("./middleware/errorMiddleware"),
   errorHandler = _require.errorHandler;
 var connectDB = require("./config/db");
 var cors = require('cors');
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT;
 
 // Connect to database
 connectDB();
@@ -27,7 +27,11 @@ app.use(cors());
 
 // Routes
 app.use('/api/users', require("./routes/userRoutes"));
-app.use('/api/tickets', require("./routes/ticketRoutes"));
+app.use('/api/admins', require("./routes/admin"));
+app.use('/api/carts', require("./routes/cart"));
+app.use('/api/orders', require("./routes/order"));
+app.use('/api/products', require("./routes/product"));
+app.use('/api/checkout', require("./routes/stripe"));
 app.use(errorHandler);
 app.listen(PORT, function () {
   return console.log("Server started on port ".concat(PORT));

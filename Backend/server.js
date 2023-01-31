@@ -5,7 +5,7 @@ const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 const cors = require('cors')
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT
 
 // Connect to database
 connectDB()
@@ -24,7 +24,11 @@ app.use(cors())
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'))
-app.use('/api/tickets', require('./routes/ticketRoutes'))
+app.use('/api/admins', require('./routes/admin'))
+app.use('/api/carts', require('./routes/cart'))
+app.use('/api/orders', require('./routes/order'))
+app.use('/api/products', require('./routes/product'))
+app.use('/api/checkout', require('./routes/stripe'))
 
 app.use(errorHandler)
 

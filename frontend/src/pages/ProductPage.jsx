@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components'
 import { publicRequest } from '../requestMethods';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
 import { cart } from '../redux/apiCalls';
 
@@ -127,11 +127,14 @@ function ProductPage() {
     const [color, setColor] = useState('')
     const [size, setSize] = useState('')
     const dispatch = useDispatch()
+    // const user  = useSelector((state) => state.user.currentUser) || {}
+     
+    // console.log('hsuser', user)
 
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const res = await publicRequest.get('/products/' + id)
+                const res = await publicRequest.get('/api/products/product/' + id)
                 setProduct(res.data)
             } catch (err) { }
         }
@@ -147,8 +150,14 @@ function ProductPage() {
     };
 
     // console.log("product!!", product)
-    
+
+    // Add to cart frontend
     const handleClick = () => {
+        dispatch(addProduct({ ...product, quantity, color, size }))
+    };
+
+      //Add to cart backend
+      const handleClick2 = () => {
         cart(dispatch, { ...product, quantity, color, size })
     };
 
@@ -184,9 +193,9 @@ function ProductPage() {
                             <Amount>{quantity}</Amount>
                             <Add onClick={() => handleQuantity('inc')} />
                         </AmountContainer>
-                        {/* <Link onClick={handleClick} to={`/cart/`}> */}
-                            <Button onClick={handleClick}>ADD TO CART</Button>
-                        {/* </Link> */}
+                          {/* {user ? (<Button onClick={handleClick2}>Add TO CART</Button>)  */}
+                          {/* :  */}
+                          <Button onClick={handleClick}>ADD TO CART</Button>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

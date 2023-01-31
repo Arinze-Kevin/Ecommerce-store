@@ -23,7 +23,7 @@ function Products() {
   useEffect(() => {
     const getProducts = async () => {
      try {
-      const res = await axios.get('http://localhost:5000/products?category=popularproducts')
+      const res = await axios.get('http://localhost:5000/api/products/all?category=popularproducts')
       setProducts(res.data)
      } catch (err) {}
     }

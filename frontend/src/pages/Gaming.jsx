@@ -61,7 +61,7 @@ function Gaming() {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products?category=gaming')
+        const res = await axios.get('http://localhost:5000/api/products/all?category=gaming')
         setProducts(res.data)
       } catch (err) {}
     }

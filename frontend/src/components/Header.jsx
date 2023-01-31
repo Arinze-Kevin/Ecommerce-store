@@ -89,8 +89,8 @@ const MenuItem = styled.div`
 function Header() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { user } = useSelector((state) => state.user.currentUser) || {}
-    // console.log(user.tokens)
+    const user = useSelector((state) => state.user?.currentUser) || {}
+    console.log('userrrrrr', user?.name)
 
     const quantity = useSelector(state=>state.cart.quantity)
     
@@ -105,10 +105,12 @@ function Header() {
                     </SearchContainer>
                 </Center>
                 <Right>
-                   {user ? (<Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/user'><h3><FaUser/> Hi, {user.name}</h3></Link>) : ( 
+                   {/* {user ? (<Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/user'><h3><FaUser/> Hi, {user.name}</h3></Link>) : ( 
                     <> <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
-                   </> )}
+                   </> )} */}
+                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
+                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
                    <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/cart'> 
                    {!!quantity && <Badge style={{marginRight: '0.6em'}} badgeContent={quantity} color='info' >
                     <FaShoppingCart/>

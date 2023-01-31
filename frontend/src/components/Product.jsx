@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import { mobile } from '../responsive';
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../redux/cartRedux';
-import { publicRequest } from '../requestMethods'
+import { publicRequest } from '../requestMethods';
+import { cart } from '../redux/apiCalls';
 
 const Info = styled.div`
    position: absolute;
@@ -108,16 +109,22 @@ function Product({ item }) {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const res = await publicRequest.get(`/products/${item._id}`)
+                const res = await publicRequest.get(`/api/products/product/${item._id}`)
                 setProduct(res.data)
             } catch (err) { }
         }
         getProduct()
     }, [])
-
+   
+    // Add to cart frontend
     const handleClick = () => {
         dispatch(addProduct({ ...product, quantity, color, size }))
     };
+
+    //Add to cart backend
+    // const handleClick2 = () => {
+    //     cart(dispatch, { ...product, quantity, color, size })
+    // };
 
     console.log("product@@", product)
     return (

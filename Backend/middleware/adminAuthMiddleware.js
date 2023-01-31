@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
-const User = require('../models/userModel')
+const Admin = require('../models/adminModel')
 
-const auth = asyncHandler(async (req, res, next) => {
+const adminAuth = asyncHandler(async (req, res, next) => {
     let token
 
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -11,8 +11,8 @@ const auth = asyncHandler(async (req, res, next) => {
             token = req.headers.authorization.split(' ')[1]
             // Verify token
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
-            // Get user from token
-            req.user = await User.findById(decoded.id).select('-password')
+            // Get admin from token
+            req.admin = await Admin.findById(decoded.id).select('-password')
 
             next()
         } catch (error) {
@@ -28,4 +28,4 @@ const auth = asyncHandler(async (req, res, next) => {
     }
 })
 
-module.exports = { auth }
+module.exports = { adminAuth }

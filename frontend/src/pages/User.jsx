@@ -38,7 +38,7 @@ function User() {
     const [product, setProduct] = useState([])
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { user } = useSelector((state) => state.user.currentUser)
+    const user = useSelector((state) => state.user?.currentUser)
 
     const onLogout = () => {
         dispatch(logout())
@@ -48,8 +48,8 @@ function User() {
     return (
         <div>
             <Container>My Account 
-                <Desc>Full Name: {user.name}</Desc><Hr2 />
-                <Desc>Email: {user.email}</Desc>
+                <Desc>Full Name: {user?.name}</Desc><Hr2 />
+                <Desc>Email: {user?.email}</Desc>
                 <Button onClick={onLogout}>Logout</Button>
             </Container>
             <Hr />

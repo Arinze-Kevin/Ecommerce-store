@@ -7,7 +7,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var jwt = require('jsonwebtoken');
 var asyncHandler = require('express-async-handler');
 var User = require("../models/userModel");
-var protect = asyncHandler( /*#__PURE__*/function () {
+var auth = asyncHandler( /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(req, res, next) {
     var token, decoded;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -53,5 +53,5 @@ var protect = asyncHandler( /*#__PURE__*/function () {
   };
 }());
 module.exports = {
-  protect: protect
+  auth: auth
 };

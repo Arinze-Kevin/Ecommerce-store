@@ -7,8 +7,8 @@ var _require = require("../controllers/userController"),
   loginUser = _require.loginUser,
   getMe = _require.getMe;
 var _require2 = require("../middleware/authMiddleware"),
-  protect = _require2.protect;
+  auth = _require2.auth;
 router.post('/', registerUser);
 router.post('/login', loginUser);
-router.get('/me', protect, getMe);
+router.get('/me', auth, getMe);
 module.exports = router;

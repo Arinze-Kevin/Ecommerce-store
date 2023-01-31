@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const login = async (dispatch, user) => {
     dispatch(loginStart())
     try {
-        const res = await publicRequest.post('/users/login', user)
+        const res = await publicRequest.post('/api/users/login', user)
         if (res.data) {
             localStorage.setItem('user', JSON.stringify(res.data))
         }
@@ -23,7 +23,7 @@ export const login = async (dispatch, user) => {
 export const register = async (dispatch, user) => {
     dispatch(registerStart())
     try {
-        const res = await userRequest.post('/users/', user)
+        const res = await userRequest.post('/api/users/', user)
         dispatch(registerSuccess(res.data))
     } catch (err) {
         dispatch(registerFailure())
@@ -60,7 +60,7 @@ export const order = async (dispatch, product) => {
         ]
     }
     try {
-        const res = await userAuth.post('/orders', payload)
+        const res = await userAuth.post('/api/orders', payload)
         if(res.data) alert('Successful')
         dispatch(addProduct(product))
     } catch (err) {
@@ -92,7 +92,7 @@ export const cart = async (dispatch, product) => {
         ]
     }
     try {
-        const res = await userAuth.post('/carts', payload)
+        const res = await userAuth.post('/api/carts', payload)
         if(res.data) alert('Successful')
         dispatch(addProduct(product))
     } catch (err) {
@@ -112,6 +112,8 @@ export const cart = async (dispatch, product) => {
 // }
 
 const logout = () => localStorage.removeItem('user')
+// const user = JSON.parse(localStorage.removeItem('persist:root'))
+    // const logout = () => JSON.parse(user.user)
 
 const apiCalls = {
     logout,

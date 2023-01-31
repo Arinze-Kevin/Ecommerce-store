@@ -61,7 +61,7 @@ function MensFashion() {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products?category=mensfashion')
+        const res = await axios.get('http://localhost:5000/api/products/all?category=mensfashion')
         setProducts(res.data)
       } catch (err) {}
     }
