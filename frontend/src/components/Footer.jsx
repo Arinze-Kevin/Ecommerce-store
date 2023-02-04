@@ -1,9 +1,12 @@
 import { Facebook, Room, Phone, Instagram, MailOutline, Pinterest, Twitter } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive';
 
 const Container = styled.div`
    display: flex;
+   ${mobile({flexWrap: 'wrap' })}
+
 `;
 const Left = styled.div`
     flex: 1;
@@ -39,6 +42,8 @@ const Center = styled.div`
     flex: 1;
     padding: 20px;
     margin-left: 4em;
+    ${mobile({display: 'none' })}
+
 `;
 const Title = styled.h3`
     margin-bottom: 30px;

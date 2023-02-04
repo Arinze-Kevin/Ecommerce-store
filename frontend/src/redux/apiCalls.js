@@ -3,7 +3,7 @@ import { publicRequest, userRequest } from "../requestMethods";
 import { createOrderFailure, createOrderStart, createOrderSuccess } from "./orderRedux"
 import { addProduct } from "./cartRedux";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Login User
 export const login = async (dispatch, user) => {
@@ -113,7 +113,7 @@ export const cart = async (dispatch, product) => {
 
 const logout = () => localStorage.removeItem('user')
 // const user = JSON.parse(localStorage.removeItem('persist:root'))
-    // const logout = () => JSON.parse(user.user)
+//     const logout = () => JSON.parse(user.user)
 
 const apiCalls = {
     logout,

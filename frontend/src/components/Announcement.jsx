@@ -4,7 +4,7 @@ import { mobile } from '../responsive'
 
 const Container = styled.div`
 // position: fixed;
-  ${mobile({ width: '175%', height: '3em' })}
+  ${mobile({ width: '100%', height: '3em' })}
    z-index: 4;
    width: 100%;
    height:20px;

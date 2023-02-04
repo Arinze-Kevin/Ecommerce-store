@@ -1,11 +1,12 @@
-import React from 'react'
-import {  Search } from '@mui/icons-material';
+import React, { useEffect } from 'react'
+import { Search } from '@mui/icons-material';
 import styled from 'styled-components'
 import { FaUser, FaSignInAlt, FaShoppingCart } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
 import { mobile } from '../responsive';
 import { Badge } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const Container = styled.div`
 ${mobile({ height: 'none' })}
@@ -40,7 +41,7 @@ const Logo = styled.div`
    display: flex;
    align-items: center;
    margin-bottom: 1.5em;
-   ${mobile({  marginRight: '-2em' })}
+   ${mobile({ marginRight: '-2em' })}
 
 `;
 
@@ -53,7 +54,10 @@ const SearchContainer = styled.div`
     padding: 2px;
     margin-bottom: 1em;
     background:  rgb(219, 76, 76);
-    ${mobile({ width: '160px', marginTop: '1em', marginRight: '0em' })}
+    ${mobile({ display: 'none' })}
+`;
+const SearchContainer2 = styled.div`
+    ${mobile({ alignItem: 'center' })}
 `;
 
 const Input = styled.input`
@@ -83,43 +87,54 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  ${mobile({ fontSize: '13px', marginRight: '-1em' })}
 `;
 
 
 function Header() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const user = useSelector((state) => state.user?.currentUser) || {}
-    console.log('userrrrrr', user?.name)
+    // const userData = useSelector((state) => state.user?.currentUser) || {}
+    const userData = JSON.parse(localStorage.getItem("user"))
+    console.log('userLOcalstorage', userData)
 
-    const quantity = useSelector(state=>state.cart.quantity)
-    
+    const quantity = useSelector(state => state.cart.quantity)
+ 
+   
     return (
         <Container>
-            <Wrapper> 
-                <Logo> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em', marginTop: '0.5em'}} to='/'>E-Shop</Link> </Logo>
+            <Wrapper>
+                <Logo> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em', marginTop: '0.5em' }} to='/'>E-Shop</Link> </Logo>
                 <Center>
-                 <SearchContainer>
-                    <Input placeholder='Search'/>
-                    <Search style={{width: '1.6em', cursor: 'pointer', background: 'rgb(219, 76, 76)', color: 'white'}}/>
+                    <SearchContainer>
+                        <Input placeholder='Search' />
+                        <Search style={{ width: '1.6em', cursor: 'pointer', background: 'rgb(219, 76, 76)', color: 'white' }} />
                     </SearchContainer>
                 </Center>
                 <Right>
-                   {/* {user ? (<Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/user'><h3><FaUser/> Hi, {user.name}</h3></Link>) : ( 
-                    <> <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
-                   </> )} */}
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/cart'> 
-                   {!!quantity && <Badge style={{marginRight: '0.6em'}} badgeContent={quantity} color='info' >
-                    <FaShoppingCart/>
-                    </Badge>}
-                    Cart</Link></MenuItem>
+                    {userData?(
+                        <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/user'><h3><FaUser /> Hi, {userData?.name}</h3></Link>
+                        ) : (
+                            <> <MenuItem> <Link style={{  textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/register'>  <FaUser />Register</Link> </MenuItem>
+                                <MenuItem> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
+                            </>
+                        )
+                    }
+                    {/* <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
+                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem> */}
+                    <MenuItem> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/cart'>
+                        {!!quantity && <Badge style={{ marginRight: '0.6em' }} badgeContent={quantity} color='info' >
+                            <FaShoppingCart />
+                        </Badge>}
+                        Cart</Link></MenuItem>
                 </Right>
             </Wrapper>
+            <SearchContainer2>
+                        <Input placeholder='Search' />
+                        <Search style={{ width: '1.6em', cursor: 'pointer', background: 'rgb(219, 76, 76)', color: 'white' }} />
+                    </SearchContainer2>
         </Container>
-       
+
     )
 }
 

@@ -24,7 +24,10 @@ const Info = styled.div`
    cursor: pointer;
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+
+${mobile({ width: '5vh'})}
+`;
 
 const Container2 = styled.div`
   flex: 1;
@@ -36,6 +39,7 @@ const Container2 = styled.div`
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
+  ${mobile({ height: '20vh'})}
 
   &:hover ${Info}{
     opacity: 1;
@@ -49,12 +53,17 @@ const Circle = styled.div`
    border-radius: 50%;
    background-color: white;
    position: absolute;
+   
+  ${mobile({ height: '20vh'})}
+   
 `;
 
 const Image = styled.img`
   z-index: 2;
   height: 75%;
   width: 290px;
+  
+  ${mobile({marginLeft: '-7em', width: '20vh'})}
 `;
 
 const Icon = styled.button`
@@ -86,6 +95,8 @@ width: 100%;
     margin: 10px;
     cursor: pointer;
     transition: all 0.5s ease;
+    
+  ${mobile({ marginTop: '-2em', fontSize: '11px', width: '350%'})}
 
     &:hover {
         background-color: rgb(234, 127, 127);

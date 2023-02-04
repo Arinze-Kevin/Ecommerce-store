@@ -43,8 +43,10 @@ const userSlice = createSlice({
             state.error = true;
         },
         reset: (state) => {
-            state.user.currentUser = null
-        }
+            state.currentUser = null;
+            state.isFetching = false;
+            state.error = false
+        },
 
         // // Logout
         // logoutStart: (state) => {

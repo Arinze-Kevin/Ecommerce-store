@@ -42,7 +42,9 @@ function User() {
 
     const onLogout = () => {
         dispatch(logout())
+        dispatch(reset())
         navigate('/')
+        window.location.reload()
     }
 
     return (

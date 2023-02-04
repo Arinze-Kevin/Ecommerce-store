@@ -13,11 +13,11 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
-    // background: yellow;
-    ${mobile({ display: 'flex', overflow: 'hidden',
-     position: 'relative', width: '33em' })}
-`;
-
+    ${mobile({ height: '40vh', width: '107%', marginLeft: '-1.8em', overflow: 'hidden' })}
+    `;
+    
+    // ${mobile({ display: 'flex', overflow: 'hidden',
+    //  position: 'relative', width: '33em' })}
 const Categories = styled.div`
    z-index: 6;
    background: white;
@@ -26,7 +26,7 @@ const Categories = styled.div`
    border-radius: 1em;
    margin-top: 2.2em;
    margin-left: 2em;
-   height: 77%
+   height: 77%;
    
 
 `;

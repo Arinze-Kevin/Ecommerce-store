@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Product from './Product'
+import { mobile } from '../responsive'
 import { popularProducts } from '../data'
-// import { mobile } from '../responsive'
 import axios from 'axios'
 
 const Container2 = styled.div`
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
+  ${mobile({ marginTop: '-1.2em', display: 'grid', gap: '10px', grid: '210px / auto auto'})}
 
 `;
 const Container = styled.div`
   
+`;
+const H1 = styled.h1`
+${mobile({backgroundColor: '#88E2F2', marginTop: '-0.2em'})}
 `;
 
 function Products() {
@@ -41,7 +45,7 @@ function Products() {
   }, [products, filters])
     return (
         <Container>
-          <h1>TOP SELLING PRODUCTS</h1>
+          <H1>TOP SELLING PRODUCTS</H1>
           <Container2>
             {filteredProducts.slice(0, 8).map((item) => (
                 <Product item={item} key={item._id}  />

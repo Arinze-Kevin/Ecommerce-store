@@ -233,6 +233,7 @@ const Error = styled.span`
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
     const { isFetching, user, currentUser, error } = useSelector((state) => state.user)
     const navigate = useNavigate()
@@ -240,15 +241,24 @@ const Login = () => {
     const handleClick = (e) => {
         e.preventDefault();
         login(dispatch, { email, password })
-        navigate('/')
+        setLoading(true)
+
+        setTimeout(() => {
+           navigate('/')
+           setLoading(false)
+        },5000)
+       
         console.log(handleClick)
     }
 
-    
+
     return (
         <Container>
             <Wrapper>
-                <Title>SIGN IN</Title>
+            {loading &&      
+               <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    }
+                <Title>SIGN IN</Title>         
                 <Form>
                     <Input 
                        placeholder="Email" 
@@ -260,7 +270,9 @@ const Login = () => {
                         type='password'
                         onChange={(e) => setPassword(e.target.value)} 
                     />
-                    <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+                  
+                    <Button onClick={handleClick} >LOGIN</Button>
+                   
                     {error && <Error>Something went wrong...</Error>}
                     <Link>DON'T HAVE AN ACCOUNT?</Link>
                     <Link>CREATE A NEW ACCOUNT</Link>

@@ -1,17 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   flex: 1;
   margin: 3px;
   height: 70vh;
   position: relative;
-`;
+    ${mobile({ height: '90%' })}
+  
+  `;
+//   ${mobile({ width: '90%', height: '15vh' })}
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  ${mobile({ height: '15vh' })}
 `;
 const Info = styled.div`
    position: absolute;
@@ -23,11 +28,14 @@ const Info = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
-`;
+   `;
+//    ${mobile({  marginTop: '2em' })}
 const Title = styled.h1`
     color: white;
     margin-bottom: 20px;
-`;
+    `;
+    // ${mobile({ display: 'none' })}
+
 const Button = styled.button`
    padding: 10px;
    border: none;
@@ -35,7 +43,8 @@ const Button = styled.button`
    color: gray;
    cursor: pointer;
    font-weight: 600;
-`;
+   `;
+//    ${mobile({ marginTop: '9em' })}
 const Desc = styled.div`
    font-weight: 700;
    padding: 10px;
@@ -43,7 +52,8 @@ const Desc = styled.div`
    letter-spacing: 5px;
    color: grey;
    font-size: 20px
-`;
+      ${mobile({ width: '100%' })}
+   `;
 
 function CategoryItem({item}) {
     return (
