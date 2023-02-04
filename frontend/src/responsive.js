@@ -7,4 +7,4 @@ export const mobile = (props) => {
         ${props}
     }
     `;
-}; 
+};
