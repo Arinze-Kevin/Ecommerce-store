@@ -8,28 +8,17 @@ import { mobile } from '../responsive';
 
 
 const Container = styled.div`
+display: none;
     width: 100%;
     height: 80vh;
-    display: flex;
+    // display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({ display: 'none' })}
+    ${mobile({display: 'flex', height: '40vh', width: '100%', margnLeft: '-1.8em', overflow: 'hidden' })}
     `;
     
     // ${mobile({ display: 'flex', overflow: 'hidden',
     //  position: 'relative', width: '33em' })}
-const Categories = styled.div`
-   z-index: 6;
-   background: white;
-   margin-right: 2em;
-   padding: 20px;
-   border-radius: 1em;
-   margin-top: 2.2em;
-   margin-left: 2em;
-   height: 77%;
-   
-
-`;
 
 const Title2 = styled.h1`
    color: grey;
@@ -37,22 +26,6 @@ const Title2 = styled.h1`
    
 `;
 
-
-const List = styled.ul`
-    font-weight: 500;
-    list-style: none;
-     padding: 0;
-     margin: o;
-     height: 70%
-    
-`;
-const ListItem = styled.li`
-//    width: 50%; 
-//    margin-bottom: 10px;
-     cursor: pointer;
-     height: 20%;
-   
-`;
 
 const Arrow = styled.div`
     width: 2em;
@@ -71,6 +44,7 @@ const Arrow = styled.div`
     left: ${props=> props.direction === 'left' && '10px'};
     right: ${props=> props.direction === 'right' && '10px'};
     z-index: 2;
+    ${mobile({ marginTop: '13em' })}
 `;
 
 // const Wrapper = styled.div`
@@ -80,8 +54,10 @@ const Arrow = styled.div`
 // `;
 
 const Wrapper = styled.div`
-    height: 100%;
+display: none;
+ height: 100%;
     display: flex;
+    ${mobile({ marginTop: '10em' })}
     transition: all 1.5s ease;
     transform: translateX(${(props) => props.slideIndex * -100}vw);
    `;
@@ -113,49 +89,25 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
-   ${mobile({  marginRight: '-3em' })}
+   ${mobile({ margiTop: '22em' })}
    
 `;
 
-// const Image = styled.img`
-// height: 70%;
-// width: 100%;
-// `;
-
 const Image = styled.img`
 height: 80%;
-width: 71%;
-${mobile({ width: '250%' })}
-
-margin-left: 2em;
-
-
-
-`;
-
-// const InfoContainer = styled.div`
-//    fllex: 1;
-//    align-item: center;
-
-// `;
-
-const  CatContainer = styled.div`
-
-${mobile({ display: 'none' })}
+width: 100%;
+${mobile({ marginop: '4em', height: '50vh', width: '130%' })}
 `;
 
 const InfoContainer = styled.div`
-   fllex: 1;
-   padding: 50px;
+   flex: 1;
+   padding: 5px;
+   font-size: 27px;
    position: absolute;
-//    background-color: white;
-//    opacity: 0.5;
-//    text-align: center;
-   margin-left: 14em;
-   margin-right: 21em;
-   margin-bottom: 9em;
-//    background-size: 1em;
-${mobile({ marginLeft: '22em' })}
+height: 10vh;
+width: 25%;
+   margin-bottom: 30em;
+${mobile({ marinLeft: '22em' })}
 
 `;
 
@@ -165,10 +117,11 @@ ${mobile({ marginLeft: '22em' })}
 // `;
 
 const Title = styled.h1`
-   font-size: 70px;
+   font-size: 24px;
    background-color: white;
    opacity: 0.5;
-
+   text-align: center;
+   margin-left: 3em;
 
 `;
 
@@ -176,9 +129,11 @@ const Title = styled.h1`
 // `;
 
 const Desc = styled.p`
-  margin: 50px 0px;
-  font-size: 20px;
-  font-weight: 600;
+text-align: center;
+  margin: 10px 20px;
+  margin-right: -2em;
+  font-size: 15px;
+  font-weight: 700;
   background-color: white;
    opacity: 0.5;
 `;
@@ -194,7 +149,7 @@ const Button = styled.button`
   cursor: pointer;
   background-color: white;
    opacity: 0.5;
-   margin-left: 7em;
+   margin-left: 5em;
    font-weight: 600;
 `;
 
@@ -214,19 +169,7 @@ function Slider() {
     
     
         <Container>
-            <CatContainer style={{background: 'lightgrey', zIndex: '2' }}>
-        <Categories>
-            <Title2>CATEGORIES</Title2>
-            <List>
-                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202)  '}} to='/mensfashion'>Men's Fashion</Link></ListItem>
-                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/womensfashion'>Women's Fashion</Link></ListItem>
-                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/accessories'>Accessories</Link></ListItem>
-                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/health&beauty'>Health & Beauty</Link></ListItem>
-                <ListItem><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202) '}} to='/gaming'>Gaming</Link></ListItem>
-            </List>
-        </Categories>
-        </CatContainer>
-            <Arrow style={{marginLeft: '20.5em'}} direction='left' onClick={()=>handleClick('left')}>
+            <Arrow style={{marginLeft: '2.5em'}} direction='left' onClick={()=>handleClick('left')}>
                  <ArrowLeft/>
             </Arrow>
             <Wrapper slideIndex={slideIndex}>

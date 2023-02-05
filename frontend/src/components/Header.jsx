@@ -11,7 +11,7 @@ import { useState } from 'react';
 const Announcement = styled.div`
 // position: relative;
 // position: fixed;
-  ${mobile({ width: '100%', height: '3em' })}
+  ${mobile({ width: '87%', height: '1.7em' })}
    z-index: 7;
    width: 100%;
    height:20px;
@@ -69,7 +69,7 @@ const SearchContainer = styled.div`
 `;
 const SearchContainer2 = styled.div`
   display: none;
-    ${mobile({ border: '0.8px solid lightgrey', display: 'flex', padding: '8px', width: '95%', alignItems: 'center', border: '0.8px solid lightgrey', alignItem: 'center' })}
+    ${mobile({ border: '0.8px solid lightgrey', display: 'flex', padding: '5px', width: '84%', alignItems: 'center', border: '0.8px solid lightgrey', alignItem: 'center' })}
 `;
 
 const Input = styled.input`
@@ -77,7 +77,7 @@ const Input = styled.input`
    border: none;
    height: 20px;
    background: rgb(240, 240, 240);
-   ${mobile({ padding: '7px', height: '20px', background: 'rgb(240, 240, 240)', width: '310px', marginLeft: '0em' })}
+   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '310px', marginLeft: '0em' })}
 
    
 `;
@@ -92,6 +92,7 @@ const Right = styled.div`
    fliex: 1;
    align-items: center;
    display: flex;
+   ${mobile({  marginRight: '3em' })}
 
 `;
 
