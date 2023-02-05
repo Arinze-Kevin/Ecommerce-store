@@ -77,7 +77,7 @@ const Input = styled.input`
    border: none;
    height: 20px;
    background: rgb(240, 240, 240);
-   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '310px', marginLeft: '0em' })}
+   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '330px' })}
 
    
 `;
@@ -92,7 +92,7 @@ const Right = styled.div`
    fliex: 1;
    align-items: center;
    display: flex;
-   ${mobile({  marginRight: '3em' })}
+   ${mobile({  marginRight: '1em' })}
 
 `;
 
