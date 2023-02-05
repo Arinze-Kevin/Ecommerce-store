@@ -21,7 +21,7 @@ display: flex;
 `;
 
 const Image = styled.img`
-${mobile({height: '30vh', marginTop: '7em'})}
+${mobile({height: '30vh', marginTop: '9em'})}
 margin-top: 2em;
     width: 100%;
     height: 90vh;
