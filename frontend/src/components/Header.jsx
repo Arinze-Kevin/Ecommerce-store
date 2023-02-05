@@ -8,22 +8,33 @@ import { Badge } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 
+const Announcement = styled.div`
+// position: relative;
+// position: fixed;
+  ${mobile({ width: '100%', height: '3em' })}
+   z-index: 7;
+   width: 100%;
+   height:20px;
+   background-color: rgb(219, 76, 76);
+   color: black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 14px;
+   font-weight: 500;
+`
 const Container = styled.div`
 ${mobile({ height: 'none' })}
+    position: relative;
+    position: fixed;
     z-index: 8;
     width: 100%;
-    // height: 9vh;
     background-color: white;
     color: rgb(219, 76, 76);
-    margin-top: 0em;
-    // margin-bottom: 11.2em;
-    
-
-
+    // margin-top: 2.5em;
 `;
 
 const Wrapper = styled.div`
-//    margin-bottom: 41.2em;
    padding; 10px 20px;
    display: flex;
    justify-content: space-between;
@@ -54,10 +65,11 @@ const SearchContainer = styled.div`
     padding: 2px;
     margin-bottom: 1em;
     background:  rgb(219, 76, 76);
-    ${mobile({ display: 'none' })}
+    ${mobile({ display: 'none',  })}
 `;
 const SearchContainer2 = styled.div`
-    ${mobile({ alignItem: 'center' })}
+  display: none;
+    ${mobile({ border: '0.8px solid lightgrey', display: 'flex', padding: '8px', width: '95%', alignItems: 'center', border: '0.8px solid lightgrey', alignItem: 'center' })}
 `;
 
 const Input = styled.input`
@@ -65,7 +77,7 @@ const Input = styled.input`
    border: none;
    height: 20px;
    background: rgb(240, 240, 240);
-   ${mobile({ width: '115px', marginLeft: '0em' })}
+   ${mobile({ padding: '7px', height: '20px', background: 'rgb(240, 240, 240)', width: '310px', marginLeft: '0em' })}
 
    
 `;
@@ -103,6 +115,8 @@ function Header() {
    
     return (
         <Container>
+            <Announcement>Super Deal! Free Shipping on Orders over $50 </Announcement>
+        
             <Wrapper>
                 <Logo> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em', marginTop: '0.5em' }} to='/'>E-Shop</Link> </Logo>
                 <Center>

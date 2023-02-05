@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
    font-weight: 300;
    text-align: center;
+   margin-top: 2em;
 `;
 
 const Top = styled.div`

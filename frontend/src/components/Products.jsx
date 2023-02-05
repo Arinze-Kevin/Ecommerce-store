@@ -9,14 +9,14 @@ const Container2 = styled.div`
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
-  ${mobile({ marginTop: '-1.2em', display: 'grid', gap: '10px', grid: '210px / auto auto'})}
+  ${mobile({ marginTop: '-1.2em', display: 'grid', gap: '5px', grid: '210px / auto auto'})}
 
 `;
 const Container = styled.div`
   
 `;
 const H1 = styled.h1`
-${mobile({backgroundColor: '#88E2F2', marginTop: '-0.2em'})}
+${mobile({alignItems: 'center', backgroundColor: '#88E2F2', marginTop: '-0.2em'})}
 `;
 
 function Products() {

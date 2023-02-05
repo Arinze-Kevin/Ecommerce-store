@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Announcement from './components/Announcement'
+// import Announcement from './components/Announcement'
 import Header from './components/Header'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
@@ -27,7 +27,7 @@ function App() {
     <>
       <Router>
         <div>
-          <Announcement />
+          {/* <Announcement /> */}
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />

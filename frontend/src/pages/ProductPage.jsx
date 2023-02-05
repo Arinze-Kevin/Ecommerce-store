@@ -6,17 +6,23 @@ import { publicRequest } from '../requestMethods';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
 import { cart } from '../redux/apiCalls';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
+
 
 `;
 
 const Wrapper = styled.div`
-    padding: 50px;
-    display: flex;
+${mobile({flexDirection: 'column'})}
+padding: 50px;
+display: flex;
+  
 `;
 
 const Image = styled.img`
+${mobile({height: '30vh', marginTop: '7em'})}
+margin-top: 2em;
     width: 100%;
     height: 90vh;
     object-fit: cover;
@@ -33,9 +39,11 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
     font-weight: 200;
-`;
-
-const Desc = styled.p`
+    
+    `;
+    
+    const Desc = styled.p`
+    ${mobile({width: '200%'})}
     margin: 20px 0px;
 `;
 
