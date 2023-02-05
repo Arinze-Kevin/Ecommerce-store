@@ -131,7 +131,7 @@ function Header() {
                         <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/user'><h3><FaUser /> Hi, {userData?.name}</h3></Link>
                         ) : (
                             <> <MenuItem> <Link style={{  textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/register'>  <FaUser />Register</Link> </MenuItem>
-                                <MenuItem> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/login'> <FaSignInAlt />Login</Link></MenuItem>
+                                {/* <MenuItem> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/login'> <FaSignInAlt />Login</Link></MenuItem> */}
                             </>
                         )
                     }
