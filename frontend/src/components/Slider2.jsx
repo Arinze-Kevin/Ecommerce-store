@@ -96,7 +96,7 @@ const ImgContainer = styled.div`
 const Image = styled.img`
 height: 80%;
 width: 100%;
-${mobile({ marginop: '4em', height: '50vh', width: '130%' })}
+${mobile({ marginop: '4em', height: '50vh', width: '110%' })}
 `;
 
 const InfoContainer = styled.div`
