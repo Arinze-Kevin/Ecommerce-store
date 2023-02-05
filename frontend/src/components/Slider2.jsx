@@ -14,7 +14,7 @@ display: none;
     // display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({display: 'flex', height: '40vh', width: '100%', margnLeft: '-1.8em', overflow: 'hidden' })}
+    ${mobile({ display: 'flex', height: '40vh', width: '95%', margnLeft: '-1.8em', overflow: 'hidden' })}
     `;
     
     // ${mobile({ display: 'flex', overflow: 'hidden',
