@@ -43,7 +43,7 @@ const Title = styled.h1`
     `;
     
     const Desc = styled.p`
-    ${mobile({width: '200%'})}
+    ${mobile({width: '150%'})}
     margin: 20px 0px;
 `;
 
