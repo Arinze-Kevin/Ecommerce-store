@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-${mobile({flexDirection: 'column'})}
+${mobile({flexDirection: 'column', marginLeft: '-5em'})}
 padding: 50px;
 display: flex;
   
