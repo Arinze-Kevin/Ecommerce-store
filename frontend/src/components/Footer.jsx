@@ -20,7 +20,7 @@ const Logo = styled.h1`
 const Desc = styled.p`
     flex: 1;
     margin: 20px 0px;
-    ${mobile({marginLeft: '1em' })}
+    ${mobile({marginLeft: '0em' })}
     // margin-right: 50em;
 `;
 const SocialContainer = styled.div`
