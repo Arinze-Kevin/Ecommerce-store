@@ -11,7 +11,7 @@ import { useState } from 'react';
 const Announcement = styled.div`
 // position: relative;
 // position: fixed;
-  ${mobile({ width: '87%', height: '1.7em' })}
+  ${mobile({ width: '89%', height: '1.7em' })}
    z-index: 7;
    width: 100%;
    height:20px;
