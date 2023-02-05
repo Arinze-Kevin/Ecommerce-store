@@ -89,14 +89,14 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
-   ${mobile({ margiTop: '22em' })}
+   ${mobile({ margiTop: '22em', marginRight: '3em' })}
    
 `;
 
 const Image = styled.img`
 height: 80%;
 width: 100%;
-${mobile({ marginop: '4em', height: '50vh', width: '110%' })}
+${mobile({marginRight: '5em', marginop: '4em', height: '50vh', width: '110%' })}
 `;
 
 const InfoContainer = styled.div`
