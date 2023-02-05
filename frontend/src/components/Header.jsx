@@ -11,7 +11,7 @@ import { useState } from 'react';
 const Announcement = styled.div`
 // position: relative;
 // position: fixed;
-  ${mobile({ width: '99%', height: '1.7em' })}
+  ${mobile({ width: '100%', height: '1.7em' })}
    z-index: 7;
    width: 100%;
    height:20px;
@@ -77,7 +77,7 @@ const Input = styled.input`
    border: none;
    height: 20px;
    background: rgb(240, 240, 240);
-   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '320px', marginLeft: '0em' })}
+   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '340px', marginLeft: '0em' })}
 
    
 `;
@@ -92,7 +92,7 @@ const Right = styled.div`
    fliex: 1;
    align-items: center;
    display: flex;
-   ${mobile({  marginRight: '1em' })}
+   ${mobile({  marginRight: '0em' })}
 
 `;
 
