@@ -14,7 +14,7 @@ display: none;
     // display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({ display: 'flex', height: '40vh', width: '95%', margnLeft: '-1.8em', overflow: 'hidden' })}
+    ${mobile({ display: 'flex', height: '40vh', width: '98%', overflow: 'hidden' })}
     `;
     
     // ${mobile({ display: 'flex', overflow: 'hidden',
@@ -89,7 +89,7 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
-   ${mobile({ margiTop: '22em', marginRight: '0em' })}
+   ${mobile({ margiTop: '22em'})}
    
 `;
 

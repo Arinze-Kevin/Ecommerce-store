@@ -77,7 +77,7 @@ const Input = styled.input`
    border: none;
    height: 20px;
    background: rgb(240, 240, 240);
-   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '340px' })}
+   ${mobile({ padding: '5px', height: '20px', background: 'rgb(240, 240, 240)', width: '345px' })}
 
    
 `;
