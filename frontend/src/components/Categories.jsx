@@ -14,7 +14,7 @@ const Container = styled.div`
   const Container2 = styled.div``;
   
   const Div = styled.h1`
-  ${mobile({backgroundColor: '#88E2F2', width: '85%', padding: '0px 15px', textAlign: 'center', marginRight: '0.8em', marginLeft: '0.1em', marginBottom: '-0.8em'})}
+  ${mobile({backgroundColor: '#88E2F2', width: '88%', padding: '0px 15px', textAlign: 'center', marginRight: '0.8em', marginLeft: '0.1em', marginBottom: '-0.8em'})}
   `;
 
   //   ${mobile({ width: '32em', flexDirection: 'column',  flexWrap: 'wrap', flex: '1' })}

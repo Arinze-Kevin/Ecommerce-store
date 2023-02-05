@@ -89,7 +89,7 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
-   ${mobile({ margiTop: '22em', marginRight: '4em' })}
+   ${mobile({ margiTop: '22em', marginRight: '2em' })}
    
 `;
 
