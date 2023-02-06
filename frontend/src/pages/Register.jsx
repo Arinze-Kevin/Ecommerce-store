@@ -77,6 +77,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
     const { currentUser, isFetching, error } = useSelector((state) => state.user)
     const navigate = useNavigate()
@@ -95,13 +96,21 @@ const Register = () => {
                 else {
         
                     register(dispatch, {name, email, password })
-                    navigate('/')
+                    setLoading(true)
+
+                    setTimeout(() => {
+                     navigate('/')
+                     setLoading(false)
+                  },5000)
                 }
             }
 
     return (
         <Container>
             <Wrapper>
+            {loading &&      
+               <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    }
                 <Title>SIGN UP</Title>
                 <Form>
                 <Input 
@@ -128,7 +137,7 @@ const Register = () => {
                         onChange={(e) => setPassword2(e.target.value)} 
                         required
                     />
-                    <Button onClick={handleClick} disabled={isFetching}>REGISTER</Button>
+                    <Button onClick={handleClick} >REGISTER</Button>
                     {error && <Error>Something went wrong...</Error>}
                     <Link>DON'T HAVE AN ACCOUNT?</Link>
                     <Link>CREATE A NEW ACCOUNT</Link>
