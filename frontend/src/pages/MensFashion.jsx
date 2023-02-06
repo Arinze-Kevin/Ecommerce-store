@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Product from '../components/Product';
 import axios from 'axios';
+import { mobile } from '../responsive';
 
 const Container = styled.div`   
-display: flex;
+   display: flex;
    padding: 20px;
    flex-wrap: wrap;
 `;
@@ -15,23 +16,24 @@ letter-spacing: 5px;
 margin: auto;
 align-text: center;
 width: 100%;
-margin-top: 0em
+margin-top: 2em
 `;
 
 const FilterContainer = styled.div`
-   display: flex;
-   justify-content: space-between;
-   width: 100%
+display: flex;
+justify-content: space-between;
+width: 100%
 `;
 
 const Filter = styled.div`
-   margin: 20px;
+margin: 20px;
 `;
 
 const FilterText = styled.span`
-   margin-right: 20px;
-   font-weight: 600;
-   font-size: 20px;
+margin-right: 20px;
+font-weight: 600;
+font-size: 20px;
+${mobile({ fontSize: '15px' })}
 `;
 
 const Select = styled.select`
