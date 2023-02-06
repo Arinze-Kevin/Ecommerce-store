@@ -113,6 +113,7 @@ const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
+   margin-top: 4em;
    ${mobile({  marginRight: '-3em' })}
    
 `;
@@ -140,6 +141,8 @@ margin-left: 2em;
 // `;
 
 const  CatContainer = styled.div`
+
+margin-top: 2em;
 
 ${mobile({ display: 'none' })}
 `;
