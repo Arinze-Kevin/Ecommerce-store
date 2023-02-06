@@ -186,7 +186,7 @@ function Cart() {
     useEffect(()=> {
         const makeRequest = async () => {
             try {
-                const res = await publicRequest.post('/api/checkout/payment', hesd, {
+                const res = await publicRequest.post('/api/checkout/payment', {
                     tokenId: stripeToken.id,
                     amount: cart.total * 100,
                 })  
