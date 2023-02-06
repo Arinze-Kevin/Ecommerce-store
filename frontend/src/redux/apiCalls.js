@@ -23,8 +23,11 @@ export const login = async (dispatch, user) => {
 export const register = async (dispatch, user) => {
     dispatch(registerStart())
     try {
-        const res = await userRequest.post('/api/users/', user)
-        dispatch(registerSuccess(res.data))
+        const res = await publicRequest.post('/api/users/', user)
+        if (res.data) {
+            localStorage.setItem('user', JSON.stringify(res.data))
+        }
+        return dispatch(registerSuccess(res.data))
     } catch (err) {
         dispatch(registerFailure())
     }

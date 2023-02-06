@@ -19,12 +19,12 @@ const cartSlice = createSlice({
             state.products.splice(
                 state.products.findIndex((item) => item._id === action.payload.id), 1
             )
+        },
+        deleteAllProducts: (state, action) => {
+            state.quantity = 0
+            state.total = 0
+            state.products = 0
         }
-        // deleteAllProducts: (state, action) => {
-        //     state.quantity = 0
-        //     state.total = 0
-        //     state.products = 0
-        // }
     }
 })
 
