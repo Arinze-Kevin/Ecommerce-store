@@ -30,17 +30,6 @@ export const register = async (dispatch, user) => {
     }
 }
 
-// Get user token
-const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
-    const user = JSON.parse(localStorage.getItem('persist:root'))
-    const currentUser = JSON.parse(user.user)
-    const auth = currentUser?.currentUser?.user?.tokens?.slice(-1)
-    const TOKEN = auth[0].token
-    export const hesd = {headers: { "Authorization": `Bearer ${TOKEN}` }}
-    export const userReques = axios.create({
-    baseURL: BASE_URL,
-    headers: { "Authorization": `Bearer ${TOKEN}` }
-}) 
 
 // Add order to backend
 export const order = async (dispatch, product) => {
