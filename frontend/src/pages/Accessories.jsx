@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Product from '../components/Product';
 import axios from 'axios';
+import { mobile } from '../responsive';
 
 
 const Container = styled.div`   
@@ -16,7 +17,7 @@ letter-spacing: 5px;
 margin: auto;
 align-text: center;
 width: 100%;
-margin-top: 0em
+margin-top: 2em
 `;
 
 const FilterContainer = styled.div`
@@ -33,6 +34,7 @@ const FilterText = styled.span`
    margin-right: 20px;
    font-weight: 600;
    font-size: 20px;
+   ${mobile({ fontSize: '15px' })}
 `;
 
 const Select = styled.select`
