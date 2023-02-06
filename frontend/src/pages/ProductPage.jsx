@@ -135,9 +135,8 @@ function ProductPage() {
     const [color, setColor] = useState('')
     const [size, setSize] = useState('')
     const dispatch = useDispatch()
-    // const user  = useSelector((state) => state.user.currentUser) || {}
-     
-    // console.log('hsuser', user)
+    
+    const user = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         const getProduct = async () => {
@@ -157,7 +156,6 @@ function ProductPage() {
         }
     };
 
-    // console.log("product!!", product)
 
     // Add to cart frontend
     const handleClick = () => {
@@ -201,9 +199,12 @@ function ProductPage() {
                             <Amount>{quantity}</Amount>
                             <Add onClick={() => handleQuantity('inc')} />
                         </AmountContainer>
-                          {/* {user ? (<Button onClick={handleClick2}>Add TO CART</Button>)  */}
-                          {/* :  */}
-                          <Button onClick={handleClick}>ADD TO CART</Button>
+                    {user? (
+                             <Button onClick={handleClick2}>ADD TO CART</Button>
+                           ) : (
+                             <Button onClick={handleClick}>ADD TO CART</Button>
+                           )
+                    }
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

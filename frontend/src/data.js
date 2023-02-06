@@ -26,6 +26,39 @@ export const categories = [
     {
         id: 1,
         img: 'https://i.ibb.co/8mnWZ73/photo-1643646018270-3e47f410521a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        desc: "WOMEN'S FASHION",
+        link: "/womensfashion"
+    },
+    {
+        id: 2,
+        img: 'https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        desc: "GAMING",
+        link: "/gaming"
+    },
+    {
+        id: 3,
+        img: 'https://i.ibb.co/fXxTFq1/photo-1670359131130-e09cb5bbb910-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        desc: 'ACCESSORIES',
+        link: "/accessories"
+    },
+    {
+        id: 4,
+        img: 'https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        desc: "MEN'S FASHION",
+        link: "/mensfashion"
+    },
+    {
+        id: 5,
+        img: 'https://i.ibb.co/fXxTFq1/photo-1670359131130-e09cb5bbb910-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        desc: 'HEALTH & BEAUTY',
+        link: "/health&beauty"
+    }
+]
+
+export const categories2 = [
+    {
+        id: 1,
+        img: 'https://i.ibb.co/8mnWZ73/photo-1643646018270-3e47f410521a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
         title: 'TOP DEALS',
         desc: "WOMEN'S FASHION",
         link: "/womensfashion"

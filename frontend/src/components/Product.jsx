@@ -114,7 +114,7 @@ function Product({ item }) {
     const [color, setColor] = useState('')
     const [size, setSize] = useState('')
 
-
+    const user = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         const getProduct = async () => {
@@ -132,11 +132,11 @@ function Product({ item }) {
     };
 
     //Add to cart backend
-    // const handleClick2 = () => {
-    //     cart(dispatch, { ...product, quantity, color, size })
-    // };
+    const handleClick2 = () => {
+        cart(dispatch, { ...product, quantity, color, size })
+    };
 
-    console.log("product@@", product)
+    // console.log("product@@", product)
     return (
         <Container>
             <Container2>

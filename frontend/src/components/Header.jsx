@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Search } from '@mui/icons-material';
+import { Dehaze, Search } from '@mui/icons-material';
 import styled from 'styled-components'
 import { FaUser, FaSignInAlt, FaShoppingCart } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
@@ -107,7 +107,6 @@ const MenuItem = styled.div`
 function Header() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    // const userData = useSelector((state) => state.user?.currentUser) || {}
     const userData = JSON.parse(localStorage.getItem("user"))
     console.log('userLOcalstorage', userData)
 
@@ -135,8 +134,6 @@ function Header() {
                             </>
                         )
                     }
-                    {/* <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/register'>  <FaUser/>Register</Link> </MenuItem>
-                   <MenuItem> <Link style={{textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em'}} to='/login'> <FaSignInAlt />Login</Link></MenuItem> */}
                     <MenuItem> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em' }} to='/cart'>
                         {!!quantity && <Badge style={{ marginRight: '0.6em' }} badgeContent={quantity} color='info' >
                             <FaShoppingCart />

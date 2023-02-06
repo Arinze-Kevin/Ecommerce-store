@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { mobile } from '../responsive';
 
 const Container = styled.div`
+  flex: 1;
   margin: 3px;
   height: 70vh;
   position: relative;
@@ -28,6 +29,12 @@ const Info = styled.div`
    align-items: center;
    justify-content: center;
    `;
+//    ${mobile({  marginTop: '2em' })}
+const Title = styled.h1`
+    color: white;
+    margin-bottom: 20px;
+    `;
+    // ${mobile({ display: 'none' })}
 
 const Button = styled.button`
    padding: 10px;
@@ -37,23 +44,24 @@ const Button = styled.button`
    cursor: pointer;
    font-weight: 600;
    `;
-   
+//    ${mobile({ marginTop: '9em' })}
 const Desc = styled.div`
    font-weight: 700;
    padding: 10px;
-   margin-right: 5em;
-   letter-spacing: 3px;
+   margin-left: 4em;
+   letter-spacing: 5px;
    color: grey;
-   width: 200%;
-   font-size: 12px
+   font-size: 20px
+      ${mobile({ width: '100%' })}
    `;
 
-function CategoryItem({item}) {
+function CategoryItem2({item}) {
     return (
         <Container>
             <Desc>{item.desc}</Desc> 
             <Image src={item.img}/>
             <Info>
+                <Title>{item.title}</Title>
                 <Button><Link style={{textDecoration: 'none', color: 'rgb(63, 156, 202)  '}} to={item.link}>SHOP NOW</Link></Button>
             </Info>
         </Container>
@@ -61,4 +69,4 @@ function CategoryItem({item}) {
     )
 }
 
-export default CategoryItem
+export default CategoryItem2

@@ -31,13 +31,17 @@ export const register = async (dispatch, user) => {
 }
 
 // Get user token
-export const token = () => {
+const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
     const user = JSON.parse(localStorage.getItem('persist:root'))
     const currentUser = JSON.parse(user.user)
     const auth = currentUser?.currentUser?.user?.tokens?.slice(-1)
     const TOKEN = auth[0].token
-    return token
-}
+    export const hesd = {headers: { "Authorization": `Bearer ${TOKEN}` }}
+    export const userReques = axios.create({
+    baseURL: BASE_URL,
+    headers: { "Authorization": `Bearer ${TOKEN}` }
+}) 
+
 // Add order to backend
 export const order = async (dispatch, product) => {
     const BASE_URL = "https://ecommerce-app-79uw.onrender.com/";
@@ -101,19 +105,9 @@ export const cart = async (dispatch, product) => {
     // console.log('payloadxxxxxxxxxxxxxxxx', currentUser)
 }
 
-// export const logout = async (dispatch, user) => {
-//     dispatch(logoutStart()) 
-//     try {
-//         const res = await publicRequest.post('/auth/users/logout', user)
-//         dispatch(logoutSuccess(res.data))
-//     } catch (err) {
-//         dispatch(logoutFailure())
-//     }
-// }
+
 
 const logout = () => localStorage.removeItem('user')
-// const user = JSON.parse(localStorage.removeItem('persist:root'))
-//     const logout = () => JSON.parse(user.user)
 
 const apiCalls = {
     logout,

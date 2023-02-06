@@ -6,6 +6,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import { userRequest, publicRequest } from '../requestMethods';
 import { Link, useNavigate } from 'react-router-dom';
 import { deleteProduct } from '../redux/cartRedux';
+import { hesd } from '../redux/apiCalls';
 
 const KEY="pk_test_51MOErXJ4lUCToH2aVTr9hnOyWNXQsS4e3C3IrbOEtUpeeMGUt8GS7szI1ZYPh1Tlzin6xK5hBufu5krYbEmRPpGJ00FyttNVHh"
 
@@ -185,7 +186,7 @@ function Cart() {
     useEffect(()=> {
         const makeRequest = async () => {
             try {
-                const res = await publicRequest.post('/api/checkout/payment', {
+                const res = await publicRequest.post('/api/checkout/payment', hesd, {
                     tokenId: stripeToken.id,
                     amount: cart.total * 100,
                 })  

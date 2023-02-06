@@ -4,6 +4,6 @@ const {auth} = require('../middleware/authMiddleware')
 
 const { stripePayment } = require('../controllers/stripeController')
 
-router.post('/payment', auth, stripePayment)
+router.post('/payment', stripePayment)
 
 module.exports = router
