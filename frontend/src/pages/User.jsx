@@ -13,11 +13,13 @@ const Container = styled.div`
     color: gray;
     border: 30px solid #e9f5f5;
     font-weight: 500;
+    ${mobile({  width: '18em', height: '10vh' })}
 `;
 
 const Desc = styled.div`
     margin-left: 10em;
     padding: 20px;
+    ${mobile({fontSize: '10px', marginTop: '-5em', width: '100%', height: '1vh' })}
 `;
 const Button = styled.button`
     margin-left: 30em;
@@ -26,6 +28,8 @@ const Button = styled.button`
     text-spacing: 20px;
     cursor: pointer;
     margin-top: 20px;
+    ${mobile({marginLeft: '7em', wdth: '25.7em', hight: '1vh' })}
+
 `;
 const Hr = styled.hr`
     
@@ -49,7 +53,7 @@ function User() {
 
     return (
         <div>
-            <Container>My Account 
+            <Container> <div style={{marginTop: '3em'}}>My Account </div>
                 <Desc>Full Name: {user?.name}</Desc><Hr2 />
                 <Desc>Email: {user?.email}</Desc>
                 <Button onClick={onLogout}>Logout</Button>
