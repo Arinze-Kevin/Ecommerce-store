@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Slider from '../components/Slider'
 import Categories from '../components/Categories'
 import Slider2 from '../components/Slider2'
