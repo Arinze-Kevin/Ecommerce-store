@@ -1,10 +1,6 @@
-import {useEffect, useState} from 'react'
-import axios from "axios";
-import { publicRequest } from '../requestMethods';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { mobile } from '../responsive';
-import { Badge } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../redux/userRedux';
 
@@ -39,7 +35,6 @@ margin-left: 8em
 `;
 
 function User() {
-    const [product, setProduct] = useState([])
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const user = useSelector((state) => state.user?.currentUser)
