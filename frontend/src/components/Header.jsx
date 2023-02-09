@@ -121,7 +121,7 @@ function Header() {
                 <Logo> <Link style={{ textDecoration: 'none', color: 'rgb(219, 76, 76)', fontSize: '1.2em', marginTop: '0.5em' }} to='/'>E-Shop</Link> </Logo>
                 <Center>
                     <SearchContainer>
-                        <Input placeholder='Search' />
+                        <Input placeholder='Search...' />
                         <Search style={{ width: '1.6em', cursor: 'pointer', background: 'rgb(219, 76, 76)', color: 'white' }} />
                     </SearchContainer>
                 </Center>

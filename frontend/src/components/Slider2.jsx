@@ -5,27 +5,19 @@ import { sliderItems } from '../data'
 import { Link } from 'react-router-dom';
 import { mobile } from '../responsive';
 
-
-
 const Container = styled.div`
 display: none;
     width: 100%;
     height: 80vh;
-    // display: flex;
     position: relative;
     overflow: hidden;
     ${mobile({ display: 'flex', height: '40vh', width: '98%', overflow: 'hidden' })}
     `;
-    
-    // ${mobile({ display: 'flex', overflow: 'hidden',
-    //  position: 'relative', width: '33em' })}
 
 const Title2 = styled.h1`
    color: grey;
    font-weight: 700
-   
 `;
-
 
 const Arrow = styled.div`
     width: 2em;
@@ -47,12 +39,6 @@ const Arrow = styled.div`
     ${mobile({ marginTop: '13em' })}
 `;
 
-// const Wrapper = styled.div`
-//     // height: 100%;
-//     width: 100%;
-//     display: flex;
-// `;
-
 const Wrapper = styled.div`
 display: none;
  height: 100%;
@@ -62,35 +48,19 @@ display: none;
     transform: translateX(${(props) => props.slideIndex * -100}vw);
    `;
 
-// const Slide = styled.div`
-//    display: flex;
-//    width: 100%
-// //    height: 100vh;
-//    align-items: center;
-// `;
-
 const Slide = styled.div`
    width: 100vw;
    height: 100vh;
    display: flex;
    align-items: center;
    background-color: #${props=>props.bg};
-  
 `;
-
-
-// const ImgContainer = styled.div`
-//    flex: 1;
-//    height:110vh;
-//    width: 100%;
-// `;
 
 const ImgContainer = styled.div`
    height:110vh;
    flex: 1;
    width: 100%;
-   ${mobile({ margiTop: '22em'})}
-   
+   ${mobile({ margiTop: '22em'})} 
 `;
 
 const Image = styled.img`
@@ -108,13 +78,7 @@ height: 10vh;
 width: 25%;
    margin-bottom: 30em;
 ${mobile({ marinLeft: '22em' })}
-
 `;
-
-// const Title = styled.h1`
-// //  margin-bottom: 50px;
-
-// `;
 
 const Title = styled.h1`
    font-size: 24px;
@@ -122,11 +86,7 @@ const Title = styled.h1`
    opacity: 0.5;
    text-align: center;
    margin-left: 3em;
-
 `;
-
-// const Desc = styled.p`
-// `;
 
 const Desc = styled.p`
 text-align: center;
@@ -137,10 +97,6 @@ text-align: center;
   background-color: white;
    opacity: 0.5;
 `;
-
-// const Button = styled.button`
-// `;
-
 
 const Button = styled.button`
   padding: 10px;
@@ -190,12 +146,8 @@ function Slider() {
             </Wrapper>
             <Arrow style={{marginRight: '2em'}} direction='right' onClick={()=>handleClick('right')}>
                 <ArrowRight/>
-            </Arrow>
-            
+            </Arrow>  
         </Container>
-
-
-        
     )
 }
 

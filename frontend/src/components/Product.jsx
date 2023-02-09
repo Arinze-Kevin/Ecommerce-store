@@ -136,7 +136,6 @@ function Product({ item }) {
         cart(dispatch, { ...product, quantity, color, size })
     };
 
-    // console.log("product@@", product)
     return (
         <Container>
             <Container2>
@@ -165,29 +164,5 @@ function Product({ item }) {
 
     )
 }
-
-// function Product({item}) {
-//     return (
-//         <Container>
-//             <Circle/>
-//             <Image src={item.img} />
-//             <Info>
-//                 <Icon>
-//                     <ShoppingCartOutlined/>
-//                 </Icon>
-//                 <Icon>
-//                     <Link to={`/product/${item._id}`}>
-//                     <SearchOutlined/>
-//                     </Link>
-//                 </Icon>
-//                 <Icon>
-//                     <FavoriteBorderOutlined/>
-//                 </Icon>
-//             </Info>
-//         </Container>
-
-//     )
-// }
-
 
 export default Product

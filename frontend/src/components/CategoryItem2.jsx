@@ -11,7 +11,7 @@ const Container = styled.div`
     ${mobile({ height: '90%' })}
   
   `;
-//   ${mobile({ width: '90%', height: '15vh' })}
+  
 const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -29,12 +29,11 @@ const Info = styled.div`
    align-items: center;
    justify-content: center;
    `;
-//    ${mobile({  marginTop: '2em' })}
+
 const Title = styled.h1`
     color: white;
     margin-bottom: 20px;
     `;
-    // ${mobile({ display: 'none' })}
 
 const Button = styled.button`
    padding: 10px;
@@ -44,7 +43,7 @@ const Button = styled.button`
    cursor: pointer;
    font-weight: 600;
    `;
-//    ${mobile({ marginTop: '9em' })}
+
 const Desc = styled.div`
    font-weight: 700;
    padding: 10px;

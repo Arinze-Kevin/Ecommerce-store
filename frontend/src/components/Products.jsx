@@ -45,7 +45,7 @@ function Products() {
   }, [products, filters])
     return (
         <Container>
-          <H1>TOP SELLING PRODUCTS</H1>
+          <H1>BEST SELLERS</H1>
           <Container2>
             {filteredProducts.slice(0, 8).map((item) => (
                 <Product item={item} key={item._id}  />
