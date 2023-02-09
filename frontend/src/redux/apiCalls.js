@@ -1,9 +1,7 @@
-import { loginFailure, loginStart, loginSuccess, registerStart, registerSuccess, registerFailure, logoutStart, logoutSuccess, logoutFailure } from "./userRedux";
-import { publicRequest, userRequest } from "../requestMethods";
-import { createOrderFailure, createOrderStart, createOrderSuccess } from "./orderRedux"
+import { loginFailure, loginStart, loginSuccess, registerStart, registerSuccess, registerFailure } from "./userRedux";
+import { publicRequest } from "../requestMethods";
 import { addProduct } from "./cartRedux";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
 // Login User
 export const login = async (dispatch, user) => {
