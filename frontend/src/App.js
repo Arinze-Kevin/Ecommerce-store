@@ -1,7 +1,6 @@
-import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-// import Announcement from './components/Announcement'
 import Header from './components/Header'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
@@ -18,21 +17,16 @@ import Accessories from './pages/Accessories'
 import ProductPage from './pages/ProductPage'
 import Pay from './pages/Pay'
 import Success from './pages/Success'
-import { useSelector } from 'react-redux'
 
 function App() {
-  // const user = useSelector((state) => state.user.currentUser);
  
   return (
     <>
       <Router>
         <div>
-          {/* <Announcement /> */}
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            {/* <Route path='/login' element={user ? <Navigate to='/user'/> : <Login />} /> */}
-            {/* <Route path='/register' element={user ? <Navigate to='/user'/> : <Register />} /> */}
             <Route path='/user' element={<User />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
@@ -51,7 +45,6 @@ function App() {
         </div>
       </Router>
       <ToastContainer />
-    
     </>
   )
 
