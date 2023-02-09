@@ -25,13 +25,13 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: 'https://i.ibb.co/8mnWZ73/photo-1643646018270-3e47f410521a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/PGSTMTT/photo-1490481651871-ab68de25d43d-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
         desc: "WOMEN'S FASHION",
         link: "/womensfashion"
     },
     {
         id: 2,
-        img: 'https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/ryhCnM2/photo-1580327344181-c1163234e5a0-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
         desc: "GAMING",
         link: "/gaming"
     },
@@ -43,7 +43,7 @@ export const categories = [
     },
     {
         id: 4,
-        img: 'https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/LgrZHFk/7e7779a917dafe9801b95c27c4eeff7f.jpg',
         desc: "MEN'S FASHION",
         link: "/mensfashion"
     },
@@ -58,24 +58,24 @@ export const categories = [
 export const categories2 = [
     {
         id: 1,
-        img: 'https://i.ibb.co/8mnWZ73/photo-1643646018270-3e47f410521a-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/PGSTMTT/photo-1490481651871-ab68de25d43d-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
         title: 'TOP DEALS',
         desc: "WOMEN'S FASHION",
         link: "/womensfashion"
     },
     {
         id: 2,
-        img: 'https://i.ibb.co/GJxVDDJ/photo-1664915949792-011667b9a89f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/LgrZHFk/7e7779a917dafe9801b95c27c4eeff7f.jpg',
         title: 'SHOP GIFTS',
         desc: "MEN'S FASHION",
         link: "/mensfashion"
     },
     {
         id: 3,
-        img: 'https://i.ibb.co/fXxTFq1/photo-1670359131130-e09cb5bbb910-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
+        img: 'https://i.ibb.co/ryhCnM2/photo-1580327344181-c1163234e5a0-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg',
         title: 'BEST SELLERS',
-        desc: 'HEALTH & BEAUTY',
-        link: "/health&beauty"
+        desc: 'GAMING',
+        link: "/gaming"
     }
 ]
 
