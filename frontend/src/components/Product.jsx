@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import { mobile } from '../responsive';
-import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import { addProduct } from '../redux/cartRedux';
 import { publicRequest } from '../requestMethods';
 import { cart } from '../redux/apiCalls';
@@ -108,13 +108,10 @@ function Product({ item }) {
 
     const dispatch = useDispatch()
     const [product, setProduct] = useState({})
-    const location = useLocation()
-    const id = location.pathname.split("/")[2]
     const [quantity, setQuantity] = useState(1)
     const [color, setColor] = useState('')
     const [size, setSize] = useState('')
 
-    const user = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         const getProduct = async () => {
@@ -124,7 +121,7 @@ function Product({ item }) {
             } catch (err) { }
         }
         getProduct()
-    }, [])
+    }, [item._id])
    
     // Add to cart frontend
     const handleClick = () => {

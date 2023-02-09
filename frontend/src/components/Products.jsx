@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Product from './Product'
 import { mobile } from '../responsive'
-import { popularProducts } from '../data'
 import axios from 'axios'
 
 const Container2 = styled.div`
@@ -16,7 +15,7 @@ const Container = styled.div`
   
 `;
 const H1 = styled.h1`
-${mobile({alignItems: 'center', marginRight: '0em', backgroundColor: '#88E2F2', marginTop: '-0.2em'})}
+${mobile({alignItms: 'center', backgroundColor: '#404a4e', marginTop: '-0.2em'})}
 `;
 
 function Products() {
@@ -55,19 +54,5 @@ function Products() {
         
     )
 }
-
-// function Products() {
-    
-
-//   return (
-//       <Container>
-//           {popularProducts.slice(0, 8).map((item) => (
-//               <Product item={item} key={item.id} />
-//           ))}
-//       </Container>
-      
-//   )
-// }
-
 
 export default Products

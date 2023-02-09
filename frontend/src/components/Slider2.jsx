@@ -14,11 +14,6 @@ display: none;
     ${mobile({ display: 'flex', height: '40vh', width: '98%', overflow: 'hidden' })}
     `;
 
-const Title2 = styled.h1`
-   color: grey;
-   font-weight: 700
-`;
-
 const Arrow = styled.div`
     width: 2em;
     margin-left: 15em;
