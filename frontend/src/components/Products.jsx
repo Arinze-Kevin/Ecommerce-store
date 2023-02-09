@@ -15,7 +15,7 @@ const Container = styled.div`
   
 `;
 const H1 = styled.h1`
-${mobile({alignItms: 'center', backgroundColor: '#404a4e', marginTop: '-0.2em'})}
+${mobile({alignItms: 'center', backgroundColor: '#9fdfff', marginTop: '-0.2em'})}
 `;
 
 function Products() {
