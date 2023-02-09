@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components'
 import { publicRequest } from '../requestMethods';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/cartRedux';
 import { cart } from '../redux/apiCalls';
 import { mobile } from '../responsive';
@@ -84,9 +84,6 @@ const FilterSize = styled.select`
 `;
 
 const FilterSizeOption = styled.option`
-
-`;
-const FilterColorOption = styled.option`
 
 `;
 
